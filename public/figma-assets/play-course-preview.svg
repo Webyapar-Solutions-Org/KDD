@@ -1,0 +1,10 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="76" height="76" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-10" y="-10" width="96" height="96"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(5px);clip-path:url(#bgblur_0_0_29_clip_path);height:100%;width:100%"></div></foreignObject><g id="Button - Play course preview" data-figma-bg-blur-radius="10">
+<path d="M0 38C0 17.0132 17.0132 0 38 0V0C58.9868 0 76 17.0132 76 38V38C76 58.9868 58.9868 76 38 76V76C17.0132 76 0 58.9868 0 38V38Z" fill="black" fill-opacity="0.14"/>
+<path d="M38 0.5C58.7107 0.5 75.5 17.2893 75.5 38C75.5 58.7107 58.7107 75.5 38 75.5C17.2893 75.5 0.5 58.7107 0.5 38C0.5 17.2893 17.2893 0.5 38 0.5Z" stroke="black" stroke-opacity="0.12"/>
+<path id="Polygon 2" d="M58.4688 35.4024C60.4688 36.5571 60.4687 39.4439 58.4687 40.5986L30.0149 57.0264C28.0149 58.1811 25.5149 56.7377 25.5149 54.4283L25.5149 21.5726C25.5149 19.2632 28.0149 17.8199 30.0149 18.9746L58.4688 35.4024Z" fill="white" fill-opacity="0.933333"/>
+</g>
+<defs>
+<clipPath id="bgblur_0_0_29_clip_path" transform="translate(10 10)"><path d="M0 38C0 17.0132 17.0132 0 38 0V0C58.9868 0 76 17.0132 76 38V38C76 58.9868 58.9868 76 38 76V76C17.0132 76 0 58.9868 0 38V38Z"/>
+</clipPath></defs>
+</svg>
