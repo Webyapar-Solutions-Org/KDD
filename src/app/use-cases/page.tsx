@@ -1,6 +1,10 @@
+import { udemyCourseUrl } from "@/lib/course";
+import SiteLogo from "@/components/SiteLogo";
+import { socialLinks } from "@/lib/social-links";
 import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
+import UseCaseCarousel from "@/components/UseCaseCarousel";
 import { createMetadata, getRouteSeo } from "@/lib/seo";
 
 export const metadata = createMetadata(getRouteSeo("/use-cases"));
@@ -10,20 +14,19 @@ const applicationAreas = [
     number: "01",
     icon: "/figma-assets/use-case-icon-1.svg",
     title: "Industry Learning",
-    text: "Understand industries, products, processes, and operational concepts systematically.",
-    href: "/industry-aware-students",
+    text: "Understand different industries using a common structure.",
   },
   {
     number: "02",
     icon: "/figma-assets/use-case-icon-2.svg",
     title: "Software Development",
-    text: "Connect domain knowledge with requirements, design, development, and implementation.",
+    text: "Connect domain knowledge with requirements, design, development, and testing.",
   },
   {
     number: "03",
     icon: "/figma-assets/use-case-icon-3.svg",
     title: "Business Analysis & Testing",
-    text: "Improve understanding of rules, processes, requirements, scenarios, and test cases.",
+    text: "Access comprehensive details of processes and use it as a reference for requirement and testing.",
   },
   {
     number: "04",
@@ -41,27 +44,10 @@ const applicationAreas = [
     number: "06",
     icon: "/figma-assets/use-case-icon-6.svg",
     title: "GenAI, RAG & Prompt Engineering",
-    text: "Use structured domain knowledge as AI context and GenAI to expand knowledge structures.",
-    highlighted: true,
+    text: "Use structured domain knowledge as AI context and GenAI to populate knowledge structures.",
   },
 ];
 
-function Logo({ inverse = false }: { inverse?: boolean }) {
-  return (
-    <Link href="/" className="flex items-center gap-2.5">
-      <div className="grid size-[38px] place-items-center rounded-[11px] bg-[#2563eb] font-display text-[17px] font-extrabold text-white">
-        K
-      </div>
-      <span
-        className={`font-display text-[17px] font-extrabold ${
-          inverse ? "text-white" : "text-[#11213a]"
-        }`}
-      >
-        KDD Educations
-      </span>
-    </Link>
-  );
-}
 
 function Pill({ children }: { children: React.ReactNode }) {
   return (
@@ -93,7 +79,7 @@ function CtaSection() {
           </div>
         </div>
         <a
-          href="#"
+          href={udemyCourseUrl} target="_blank" rel="noopener noreferrer"
           className="w-fit rounded-full bg-white px-[22px] py-3.5 font-bold text-[#2563eb]"
         >
           Enroll on Udemy &rarr;
@@ -109,7 +95,7 @@ function Footer() {
       <div className="mx-auto w-full max-w-[1280px] px-5 py-8 lg:px-0">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,380px)_1fr]">
           <div>
-            <Logo inverse />
+            <SiteLogo inverse />
             <p className="mt-4 max-w-[377px] text-sm leading-[1.55] text-[#9fb1c7]">
               Helping learners bridge industry knowledge and real-world application
               through courses, books, and practical resources.
@@ -129,12 +115,8 @@ function Footer() {
             <div>
               <h3 className="font-bold text-white">Social Links</h3>
               <div className="mt-4 grid gap-2.5 text-sm text-[#9fb1c7]">
-                {[
-                  ["YouTube", "/figma-assets/youtube.svg"],
-                  ["LinkedIn", "/figma-assets/linkedin.svg"],
-                  ["Instagram", "/figma-assets/instagram.svg"],
-                ].map(([label, icon]) => (
-                  <a key={label} href="#" className="flex items-center gap-3">
+                {socialLinks.map(({ label, icon, href }) => (
+                  <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={`${label} (opens in a new tab)`} className="flex items-center gap-3">
                     <Image src={icon} alt="" width={24} height={24} />
                     {label}
                   </a>
@@ -151,10 +133,6 @@ function Footer() {
                   <Image src="/figma-assets/mail.svg" alt="" width={24} height={24} />
                   ceo@kddeducations.com
                 </a>
-                <div className="flex items-center gap-3">
-                  <Image src="/figma-assets/phone.svg" alt="" width={24} height={24} />
-                  +91 987 654 3210
-                </div>
               </div>
             </div>
           </div>
@@ -194,25 +172,22 @@ export default function UseCases() {
             </p>
             <h1 className="mt-16 max-w-[624px] font-display text-[42px] font-extrabold leading-[1.02] tracking-[-0.057em] text-[#11213a] sm:text-[58px] lg:text-[75px]">
               Bringing structure to{" "}
-              <span className="text-[#2563eb]">industry, enterprise, and projects.</span>
+              <span className="text-[#2563eb]">industry, enterprise, and project.</span>
             </h1>
             <p className="mt-8 max-w-[624px] text-[19px] leading-[1.58] text-[#64748b]">
-              As organisations become more complex, knowledge becomes scattered across
-              people, documents, systems, and projects. KDD makes this knowledge easier
-              to learn, navigate, connect, and apply.
+              KDD makes this knowledge structured and therefore easier to learn, navigate, connect, and apply.
             </p>
             <p className="mt-6 max-w-[624px] text-[19px] leading-[1.58] text-[#64748b]">
-              KDD supports both industry and academia by improving learning, analysis,
-              execution, and project delivery.
+              KDD makes this knowledge structured and therefore easier to learn, navigate, connect, and apply.
             </p>
           </div>
-          <div className="relative aspect-[1.29] w-full overflow-hidden rounded-[24px] shadow-[0_28px_70px_rgba(8,28,53,0.22)]">
+          <div className="relative aspect-[3/2] w-full overflow-hidden rounded-[24px] shadow-[0_28px_70px_rgba(8,28,53,0.22)]">
             <Image
-              src="/figma-assets/use-cases-hero.png"
-              alt="Professional studying structured use cases"
+              src="/images/site-updates/kdd-knowledge-ecosystem.png"
+              alt="KDD structured knowledge ecosystem connecting industry, enterprise, and project applications"
               fill
               priority
-              className="object-cover"
+              className="object-contain"
               sizes="(min-width: 1024px) 579px, 100vw"
             />
           </div>
@@ -242,9 +217,7 @@ export default function UseCases() {
                     {area.number}
                   </span>
                   <div
-                    className={`grid size-[58px] place-items-center rounded-[17px] ${
-                      area.highlighted ? "bg-white" : "bg-[#eaf2ff]"
-                    }`}
+                    className={`grid size-[58px] place-items-center rounded-[17px] bg-[#eaf2ff]`}
                   >
                     <Image src={area.icon} alt="" width={30} height={30} />
                   </div>
@@ -257,19 +230,7 @@ export default function UseCases() {
                 </>
               );
 
-              const className = `relative rounded-[19px] border p-7 shadow-[0_10px_16px_rgba(23,59,105,0.05)] ${
-                area.highlighted
-                  ? "border-[#adcaff] bg-[#eaf2ff]"
-                  : "border-[#dbe5f3] bg-white"
-              }`;
-
-              if (area.href) {
-                return (
-                  <Link key={area.number} href={area.href} className={className}>
-                    {cardContent}
-                  </Link>
-                );
-              }
+              const className = `relative rounded-[19px] border p-7 shadow-[0_10px_16px_rgba(23,59,105,0.05)] border-[#dbe5f3] bg-white`;
 
               return (
                 <article key={area.number} className={className}>
@@ -287,15 +248,10 @@ export default function UseCases() {
           <h2 className="mt-[18px] font-display text-[36px] font-extrabold leading-[1.07] tracking-[-0.047em] text-[#11213a] sm:text-[57px]">
             Practical use cases for each application area.
           </h2>
-          <div className="relative mt-11 aspect-[2.98] min-h-[240px] overflow-hidden bg-black">
-            <Image
-              src="/figma-assets/use-cases-library.png"
-              alt="Team discussing practical use cases"
-              fill
-              className="object-cover"
-              sizes="(min-width: 1024px) 1280px, 100vw"
-            />
-          </div>
+          <p className="mt-5 max-w-3xl text-lg leading-relaxed text-[#64748b]">
+            Explore the list of use cases for each of the six KDD application areas. Swipe through the images or use the arrows to browse.
+          </p>
+          <UseCaseCarousel />
         </div>
       </section>
 

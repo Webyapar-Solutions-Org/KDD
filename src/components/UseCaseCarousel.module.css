@@ -1,0 +1,37 @@
+.carousel {
+  padding-bottom: 48px;
+}
+
+.carousel :global(.swiper-pagination-bullet) {
+  width: 24px;
+  height: 24px;
+  margin: 0 3px !important;
+  background: transparent;
+  opacity: 1;
+}
+
+.carousel :global(.swiper-pagination-bullet)::before {
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 7px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  content: "";
+}
+
+.carousel :global(.swiper-pagination-bullet-active)::before {
+  background: #2563eb;
+}
+
+.carousel :global(.swiper-pagination-bullet:focus-visible) {
+  border-radius: 50%;
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel :global(.swiper-wrapper) {
+    transition-duration: 0ms !important;
+  }
+}

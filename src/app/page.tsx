@@ -1,3 +1,7 @@
+import { udemyCourseUrl } from "@/lib/course";
+import { learningBooks as books } from "@/lib/learning-resources";
+import SiteLogo from "@/components/SiteLogo";
+import { socialLinks } from "@/lib/social-links";
 import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
@@ -5,55 +9,30 @@ import { createMetadata, getRouteSeo, siteConfig } from "@/lib/seo";
 
 export const metadata = createMetadata(getRouteSeo("/"));
 
-const heroStats = [
-  { icon: "/figma-assets/clock.svg", label: "1 hour" },
-  { icon: "/figma-assets/book-open.svg", label: "Beginner friendly" },
-  { icon: "/figma-assets/signal.svg", label: "Lifetime access" },
-];
-
-const learnerCards = [
-  {
-    icon: "/figma-assets/graduation-cap.svg",
-    title: "IT Students",
-    text: "Build domain knowledge alongside technical skills and create an extra edge.",
-  },
-  {
-    icon: "/figma-assets/briefcase.svg",
-    title: "Management Students",
-    text: "Discover business industries and gain exposure to a specific industry vertical.",
-  },
-  {
-    icon: "/figma-assets/layer-10.svg",
-    title: "Working Professionals",
-    text: "Strengthen your career domain understanding and connect knowledge with everyday work.",
-  },
-  {
-    icon: "/figma-assets/laptop.svg",
-    title: "IT Freelancers",
-    text: "Understand client requirements, business processes, and project context with confidence.",
-  },
-];
-
 const darkBenefits = [
   {
-    title: "Understand industry knowledge structure",
-    text: "Learn how products, processes, and business concepts fit together.",
+    title: "Practical Udemy course",
+    text: "Explore Industry Knowledge Structure through a practical introduction to Life Insurance.",
   },
   {
-    title: "Learn Life Insurance in a structured way",
-    text: "A clear, beginner approach for entry-level understanding.",
+    title: "Extensive KDD literature",
+    text: "Build your understanding through books, papers, articles, and other learning resources.",
   },
   {
-    title: "Connect products and processes",
-    text: "Understand how different areas of the industry are linked.",
+    title: "KDD-based software tool in development",
+    text: "A software tool based on KDD is in development. Coming soon.",
   },
   {
-    title: "Build practical domain exposure",
-    text: "Gain a view of real-world business and system scenarios.",
+    title: "Present in many college syllabi",
+    text: "KDD brings structured industry knowledge into academic learning.",
   },
   {
-    title: "Add a differentiating skill",
-    text: "Stand out with valuable domain expertise.",
+    title: "Built on proven building blocks",
+    text: "A foundation of established concepts supports the KDD framework.",
+  },
+  {
+    title: "Domain agnostic structure",
+    text: "A common structure across industries that bridges the industry–academia gap.",
   },
 ];
 
@@ -80,39 +59,8 @@ const gains = [
   },
 ];
 
-const books = [
-  {
-    title: "Knowledge Driven Development",
-    coverTitle: "Knowledge Driven Development",
-    coverSubtitle: "Bridging Waterfall and Agile Methodologies",
-    gradient: "from-[#06182c] to-[#0e4778]",
-    text: "A practical guide to building software systems using industry knowledge and agile methods.",
-  },
-  {
-    title: "Digitizing Industry Knowledge for Software Development",
-    coverTitle: "Digitizing Industry Knowledge",
-    coverSubtitle: "For Software Development",
-    gradient: "from-[#161b55] to-[#224e9d]",
-    text: "Learn how to capture, organize, and digitize industry knowledge to build better systems.",
-  },
-];
 
-function Logo({ inverse = false }: { inverse?: boolean }) {
-  return (
-    <div className="flex items-center gap-2.5">
-      <div className="grid size-[38px] place-items-center rounded-[11px] bg-[#2563eb] font-display text-[17px] font-extrabold text-white">
-        K
-      </div>
-      <span
-        className={`font-display text-[17px] font-extrabold ${
-          inverse ? "text-white" : "text-[#11213a]"
-        }`}
-      >
-        KDD Educations
-      </span>
-    </div>
-  );
-}
+
 
 function Pill({ children }: { children: React.ReactNode }) {
   return (
@@ -166,6 +114,8 @@ export default function Home() {
     name: siteConfig.name,
     url: siteConfig.url,
     email: siteConfig.email,
+    sameAs: socialLinks.map(({ href }) => href),
+    logo: `${siteConfig.url}/branding/kdd-logo.png`,
   };
 
   return (
@@ -178,83 +128,61 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseJsonLd) }}
       />
-      <SiteHeader active="learning" />
+      <SiteHeader active="home" />
 
       <section className="bg-[radial-gradient(circle_at_25%_20%,#ffffff_0%,#f5f9ff_38%,#edf5ff_100%)]">
-        <div className="mx-auto grid w-full max-w-[1280px] items-start gap-10 px-5 pb-16 pt-12 sm:pb-20 lg:min-h-[767px] lg:grid-cols-[minmax(0,630px)_minmax(0,580px)] lg:px-0">
+        <div className="mx-auto grid w-full max-w-[1280px] items-start gap-10 px-5 pb-10 pt-12 sm:pb-12 lg:grid-cols-[minmax(0,630px)_minmax(0,580px)] lg:px-0">
           <div>
-            <Pill>Udemy Course</Pill>
+            <Pill>Industry Knowledge Structure</Pill>
             <h1 className="mt-6 font-display text-[42px] font-extrabold leading-[0.98] tracking-[-0.055em] text-[#11213a] sm:text-[58px] lg:text-[70px]">
-              Industry Knowledge Structure -{" "}
-              <span className="text-[#2563eb]">Simplifying Life Insurance</span>
+              Background to <span className="text-[#2563eb]">IKS</span>
             </h1>
             <p className="mt-7 max-w-[650px] text-lg leading-[1.55] text-[#64748b]">
-              A 1-hour introductory course that organizes Life Insurance knowledge
-              through products, processes, and connected business concepts. Build a
-              clear foundation for understanding how the industry works.
+              Knowledge Driven Development, also known as KDD is a Knowledge Structuring framework aimed at structuring industry, enterprise and project knowledge for faster delivery. One of its constituents is Industry Knowledge Structure that provides a common structure to specify any industry.
             </p>
-            <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3">
-              {heroStats.map((stat) => (
-                <div key={stat.label} className="flex items-center gap-2 text-xs font-extrabold text-[#11213a]">
-                  <span className="grid size-5 place-items-center rounded-full bg-[#eaf2ff]">
-                    <Image src={stat.icon} alt="" width={13} height={13} />
-                  </span>
-                  {stat.label}
-                </div>
-              ))}
-            </div>
-            <a
-              href="#"
+            <Link
+              href="/industry-knowledge-structure"
               className="mt-7 inline-flex rounded-full bg-[#ff5659] px-5 py-3 text-sm font-bold text-white shadow-[0_10px_22px_rgba(255,86,89,0.22)]"
             >
-              Enroll on Udemy &rarr;
-            </a>
+              Explore IKS &rarr;
+            </Link>
           </div>
 
           <div className="relative mx-auto w-full max-w-[580px]">
-            <div className="relative aspect-[1.63] overflow-hidden rounded-[14px] shadow-[0_20px_36px_rgba(17,33,58,0.2)]">
+            <div className="relative aspect-[640/427] overflow-hidden rounded-[14px] shadow-[0_20px_36px_rgba(17,33,58,0.2)]">
               <Image
-                src="/figma-assets/course-preview.png"
-                alt="Course preview with instructor"
+                src="/images/site-updates/life-insurance-course-hero.png"
+                alt="Life Insurance industry knowledge connecting policy, underwriting, premium, and claims"
                 fill
                 priority
-                className="object-cover"
+                className="object-contain"
                 sizes="(min-width: 1024px) 580px, 100vw"
               />
             </div>
-            <button
-              type="button"
-              aria-label="Play course preview"
-              className="absolute left-1/2 top-1/2 grid size-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/90 shadow-[0_18px_34px_rgba(17,33,58,0.25)]"
-            >
-              <Image src="/figma-assets/play-course-preview.svg" alt="" width={24} height={24} />
-            </button>
           </div>
         </div>
       </section>
 
-      <section className="bg-white">
-        <div className="mx-auto w-full max-w-[1280px] px-5 py-20 lg:min-h-[640px] lg:px-0 lg:py-24">
-          <SectionHeading
-            eyebrow="For learning seekers"
-            title="Designed for learners at every career stage."
-            text="Whether you are starting your career or expanding your domain knowledge, this course provides a clear and practical introduction to the Life Insurance industry."
-          />
-          <div className="mt-11 grid gap-[18px] sm:grid-cols-2 lg:grid-cols-4">
-            {learnerCards.map((card) => (
-              <article
-                key={card.title}
-                className="rounded-[10px] border border-[#dbe5f3] bg-white p-6 shadow-[0_10px_15px_rgba(21,52,88,0.04)]"
-              >
-                <Image src={card.icon} alt="" width={26} height={26} />
-                <h3 className="mt-8 font-display text-base font-bold text-[#11213a]">
-                  {card.title}
-                </h3>
-                <p className="mt-3 text-[13px] leading-[1.55] text-[#64748b]">
-                  {card.text}
-                </p>
-              </article>
-            ))}
+      <section aria-labelledby="what-is-structure" className="bg-white">
+        <div className="mx-auto grid w-full max-w-[1280px] items-center gap-10 px-5 py-20 lg:grid-cols-2 lg:gap-16 lg:py-24 xl:px-0">
+          <div className="lg:col-start-2 lg:row-start-1">
+            <Pill>Understanding IKS</Pill>
+            <h2 id="what-is-structure" className="mt-6 font-display text-[34px] font-extrabold leading-[1.08] tracking-[-0.04em] sm:text-[44px] lg:text-[50px]">
+              What is <span className="text-[#2563eb]">Structure</span>
+            </h2>
+            <p className="mt-6 text-lg leading-[1.7] text-[#64748b]">
+              Knowledge is unstructured when it is in the form of documents, audio, video, blogs and such formats. Knowledge is structured in business process models, data flow diagrams and such formats. Industry Knowledge Structure specifies end to end industry knowledge.
+            </p>
+          </div>
+          <div className="overflow-hidden rounded-[22px] border border-[#dbe5f3] bg-white p-3 shadow-[0_16px_36px_rgba(17,33,58,0.06)] sm:p-6 lg:col-start-1 lg:row-start-1">
+            <Image
+              src="/images/what-is-structure.png"
+              alt="Unstructured knowledge in documents, audio, video and books becomes structured industry knowledge organized by domain, contextual, conceptual and operational knowledge, with products, processes, rules, data and actors."
+              width={1280}
+              height={640}
+              sizes="(min-width: 1280px) 558px, (min-width: 1024px) 50vw, 100vw"
+              className="h-auto w-full"
+            />
           </div>
         </div>
       </section>
@@ -262,14 +190,12 @@ export default function Home() {
       <section className="bg-[#061629]">
         <div className="mx-auto grid w-full max-w-[1280px] gap-10 px-5 py-20 lg:min-h-[636px] lg:grid-cols-[minmax(0,520px)_minmax(0,628px)] lg:items-center lg:px-0">
           <div>
-            <Pill>Course benefits</Pill>
+            <Pill>The KDD Foundation</Pill>
             <h2 className="mt-6 max-w-[480px] font-display text-[34px] font-extrabold leading-[1.08] tracking-[-0.04em] text-white sm:text-[44px]">
-              Why enroll in this course?
+              Research-backed. Practical. Academically relevant.
             </h2>
             <p className="mt-5 max-w-[430px] text-[15px] leading-[1.55] text-[#9fb4ca]">
-              Get a structured and practical introduction to Life Insurance. See
-              the complete picture - from products and processes to the broader
-              business context.
+              Explore the courses, literature, and building blocks that support KDD and connect industry knowledge with academic learning.
             </p>
           </div>
           <div className="grid gap-3">
@@ -295,7 +221,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white">
+      {/* <section className="bg-white">
         <div className="mx-auto w-full max-w-[1280px] px-5 py-20 lg:min-h-[763px] lg:px-0 lg:py-24">
           <SectionHeading
             eyebrow="What you will gain"
@@ -329,7 +255,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="bg-[#f1f6fd]">
         <div className="mx-auto w-full max-w-[1280px] px-5 py-20 lg:min-h-[767px] lg:px-0 lg:py-24">
@@ -344,30 +270,34 @@ export default function Home() {
                 key={book.title}
                 className="grid gap-6 rounded-[20px] border border-[#dbe5f3] bg-white p-6 shadow-[0_16px_22px_rgba(18,54,94,0.08)] sm:grid-cols-[180px_1fr]"
               >
-                <div
-                  className={`relative min-h-[262px] overflow-hidden rounded-[7px] bg-linear-to-br ${book.gradient} px-[18px] py-[22px] shadow-[12px_12px_24px_rgba(8,28,53,0.2)]`}
-                >
-                  <h3 className="font-display text-[19px] font-bold leading-[1.15] text-white">
-                    {book.coverTitle}
-                  </h3>
-                  <p className="mt-5 text-[13px] leading-[1.55] text-[#bcd8fa]">
-                    {book.coverSubtitle}
-                  </p>
-                  <div className="absolute bottom-8 left-[-20px] h-[58px] w-[220px] opacity-80 [background:linear-gradient(165deg,rgba(22,116,212,0)_20%,#1674d4_21%,#1674d4_44%,#40a8ff_45%,#40a8ff_63%,rgba(64,168,255,0)_64%)]" />
+                <div className="relative mx-auto h-[262px] w-[180px] self-start">
+                  <Image
+                    src={`/learning-resources/${book.image}`}
+                    alt={`${book.title} book cover`}
+                    fill
+                    unoptimized={book.image.endsWith(".gif")}
+                    sizes="180px"
+                    className="object-contain object-top"
+                  />
                 </div>
                 <div className="self-center">
                   <h3 className="font-display text-[21px] font-bold leading-[1.2] text-[#11213a]">
                     {book.title}
                   </h3>
+                  {book.subtitle && <p className="mt-2 text-sm font-semibold text-[#64748b]">{book.subtitle}</p>}
                   <p className="mt-2 text-sm font-bold text-[#2563eb]">By Manoj Kumar Lal</p>
-                  <p className="mt-4 text-sm leading-[1.55] text-[#64748b]">{book.text}</p>
-                  <a href="#" className="mt-5 inline-flex text-sm font-extrabold text-[#2563eb]">
-                    Read More &rarr;
+                  <p className="mt-2 text-xs font-semibold leading-relaxed text-[#64748b]">{book.publisher}</p>
+                  <p className="mt-4 text-sm leading-[1.55] text-[#64748b]">{book.description}</p>
+                  <a href={book.url} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex text-sm font-extrabold text-[#2563eb] hover:underline">
+                    Read more on Amazon <span aria-hidden="true">&nbsp;↗</span><span className="sr-only"> (opens in a new tab)</span>
                   </a>
                 </div>
               </article>
             ))}
           </div>
+          <Link href="/learning-resources" className="mt-8 inline-flex text-sm font-extrabold text-[#2563eb] hover:underline">
+            View all learning resources &rarr;
+          </Link>
         </div>
       </section>
 
@@ -387,7 +317,7 @@ export default function Home() {
             </div>
           </div>
           <a
-            href="#"
+            href={udemyCourseUrl} target="_blank" rel="noopener noreferrer"
             className="w-fit rounded-full bg-white px-[22px] py-3.5 font-bold text-[#2563eb]"
           >
             Enroll on Udemy &rarr;
@@ -399,7 +329,7 @@ export default function Home() {
         <div className="mx-auto w-full max-w-[1280px] px-5 py-8 lg:px-0">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,380px)_1fr]">
             <div>
-              <Logo inverse />
+              <SiteLogo inverse />
               <p className="mt-4 max-w-[377px] text-sm leading-[1.55] text-[#9fb1c7]">
                 Helping learners bridge industry knowledge and real-world application
                 through courses, books, and practical resources.
@@ -414,18 +344,14 @@ export default function Home() {
                   <Link href="/industry-knowledge-structure">Industry Knowledge Structure</Link>
                   <Link href="/use-cases">Use Cases</Link>
                   <Link href="/industry-aware-students">Industry-Aware Students</Link>
-                  <Link href="/contact-us">Contact Us</Link>
+                  <Link href="/about-us">About Us</Link>
                 </div>
               </div>
               <div>
                 <h3 className="font-bold text-white">Social Links</h3>
                 <div className="mt-4 grid gap-2.5 text-sm text-[#9fb1c7]">
-                  {[
-                    ["YouTube", "/figma-assets/youtube.svg"],
-                    ["LinkedIn", "/figma-assets/linkedin.svg"],
-                    ["Instagram", "/figma-assets/instagram.svg"],
-                  ].map(([label, icon]) => (
-                    <a key={label} href="#" className="flex items-center gap-3">
+                  {socialLinks.map(({ label, icon, href }) => (
+                    <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={`${label} (opens in a new tab)`} className="flex items-center gap-3">
                       <Image src={icon} alt="" width={24} height={24} />
                       {label}
                     </a>
@@ -439,10 +365,6 @@ export default function Home() {
                     <Image src="/figma-assets/mail.svg" alt="" width={24} height={24} />
                     ceo@kddeducations.com
                   </a>
-                  <div className="flex items-center gap-3">
-                    <Image src="/figma-assets/phone.svg" alt="" width={24} height={24} />
-                    +91 987 654 3210
-                  </div>
                 </div>
               </div>
             </div>

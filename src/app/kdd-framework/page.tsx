@@ -1,3 +1,6 @@
+import { udemyCourseUrl } from "@/lib/course";
+import SiteLogo from "@/components/SiteLogo";
+import { socialLinks } from "@/lib/social-links";
 import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
@@ -24,22 +27,6 @@ const knowledgeSteps = [
   },
 ];
 
-function Logo({ inverse = false }: { inverse?: boolean }) {
-  return (
-    <Link href="/" className="flex items-center gap-2.5">
-      <div className="grid size-[38px] place-items-center rounded-[11px] bg-[#2563eb] font-display text-[17px] font-extrabold text-white">
-        K
-      </div>
-      <span
-        className={`font-display text-[17px] font-extrabold ${
-          inverse ? "text-white" : "text-[#11213a]"
-        }`}
-      >
-        KDD Educations
-      </span>
-    </Link>
-  );
-}
 
 function Pill({
   children,
@@ -80,7 +67,7 @@ function FrameworkImage({
         src={src}
         alt={alt}
         fill
-        className="object-cover"
+        className="object-contain"
         sizes="(min-width: 1024px) 580px, 100vw"
       />
     </div>
@@ -105,7 +92,7 @@ function CtaSection() {
           </div>
         </div>
         <a
-          href="#"
+          href={udemyCourseUrl} target="_blank" rel="noopener noreferrer"
           className="w-fit rounded-full bg-white px-[22px] py-3.5 font-bold text-[#2563eb]"
         >
           Enroll on Udemy &rarr;
@@ -121,7 +108,7 @@ function Footer() {
       <div className="mx-auto w-full max-w-[1280px] px-5 py-8 lg:px-0">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,380px)_1fr]">
           <div>
-            <Logo inverse />
+            <SiteLogo inverse />
             <p className="mt-4 max-w-[377px] text-sm leading-[1.55] text-[#9fb1c7]">
               Helping learners bridge industry knowledge and real-world application
               through courses, books, and practical resources.
@@ -142,12 +129,8 @@ function Footer() {
             <div>
               <h3 className="font-bold text-white">Social Links</h3>
               <div className="mt-4 grid gap-2.5 text-sm text-[#9fb1c7]">
-                {[
-                  ["YouTube", "/figma-assets/youtube.svg"],
-                  ["LinkedIn", "/figma-assets/linkedin.svg"],
-                  ["Instagram", "/figma-assets/instagram.svg"],
-                ].map(([label, icon]) => (
-                  <a key={label} href="#" className="flex items-center gap-3">
+                {socialLinks.map(({ label, icon, href }) => (
+                  <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={`${label} (opens in a new tab)`} className="flex items-center gap-3">
                     <Image src={icon} alt="" width={24} height={24} />
                     {label}
                   </a>
@@ -164,10 +147,6 @@ function Footer() {
                   <Image src="/figma-assets/mail.svg" alt="" width={24} height={24} />
                   ceo@kddeducations.com
                 </a>
-                <div className="flex items-center gap-3">
-                  <Image src="/figma-assets/phone.svg" alt="" width={24} height={24} />
-                  +91 987 654 3210
-                </div>
               </div>
             </div>
           </div>
@@ -216,9 +195,9 @@ export default function KddFramework() {
             </p>
           </div>
           <FrameworkImage
-            src="/figma-assets/kdd-framework-hero.png"
-            alt="Instructor working beside learning materials"
-            className="aspect-[1.29] w-full"
+            src="/images/site-updates/kdd-knowledge-to-execution.png"
+            alt="KDD Framework connecting industry, enterprise, and project knowledge to business execution"
+            className="aspect-[3/2] w-full"
           />
         </div>
       </section>
@@ -232,15 +211,13 @@ export default function KddFramework() {
                 From generic knowledge to implementable knowledge.
               </h2>
               <p className="mt-6 max-w-[655px] text-lg leading-[1.58] text-[#64748b]">
-                Successful delivery requires the right balance. Too much focus on
-                knowledge can delay execution, while execution without sufficient
-                knowledge can compromise the output. KDD brings both together.
+                Successful delivery requires the right balance of knowledge and execution. Too much focus on knowledge can delay execution, while execution without sufficient knowledge can compromise the output. KDD optimises knowledge and execution.
               </p>
             </div>
             <FrameworkImage
-              src="/figma-assets/kdd-framework-hero.png"
-              alt="Knowledge framework in practice"
-              className="aspect-[1.6] w-full"
+              src="/images/site-updates/kdd-implementable-knowledge.png"
+              alt="Progression from generic knowledge to implementable knowledge"
+              className="aspect-[3/2] w-full"
             />
           </div>
 
@@ -289,12 +266,12 @@ export default function KddFramework() {
           </div>
 
           <div className="mt-16 rounded-[26px] border border-white/10 bg-[#0d2948] p-4 sm:p-10">
-            <div className="relative aspect-[1.94] overflow-hidden rounded-[20px]">
+            <div className="relative aspect-[1429/1100] overflow-hidden rounded-[20px]">
               <Image
-                src="/figma-assets/kdd-framework-mesh.png"
+                src="/images/site-updates/kdd-product-process-mesh.png"
                 alt="Product process mesh framework"
                 fill
-                className="object-cover"
+                className="object-contain"
                 sizes="(min-width: 1024px) 1200px, 100vw"
               />
             </div>

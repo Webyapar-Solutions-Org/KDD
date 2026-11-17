@@ -74,35 +74,42 @@ export const routes = [
     title: "KDD Educations",
     description:
       "Build a clear foundation in Life Insurance industry knowledge with a beginner-friendly course covering products, processes, and business concepts.",
-    image: "/figma-assets/course-preview.png",
+    image: "/images/site-updates/life-insurance-course-hero.png",
+  },
+  {
+    path: "/course",
+    title: "Life Insurance Course | Industry Knowledge Structure | KDD Educations",
+    description:
+      "Learn Industry Knowledge Structure through a beginner-friendly, one-hour Life Insurance course covering products, processes, and connected business concepts.",
+    image: "/images/site-updates/life-insurance-course-hero.png",
   },
   {
     path: "/why-domain-knowledge",
     title: "Why Domain Knowledge Matters | KDD Educations",
     description:
       "Understand why domain knowledge helps students, IT professionals, freelancers, and business teams build better software and make stronger decisions.",
-    image: "/figma-assets/domain-hero.png",
+    image: "/images/site-updates/professional-skills-pillars.png",
   },
   {
     path: "/kdd-framework",
     title: "KDD Framework | Knowledge Driven Development",
     description:
       "Explore the Knowledge Driven Development framework for connecting industry knowledge, requirements, and software development practices.",
-    image: "/figma-assets/kdd-framework-hero.png",
+    image: "/images/site-updates/kdd-knowledge-to-execution.png",
   },
   {
     path: "/industry-knowledge-structure",
     title: "Industry Knowledge Structure | KDD Educations",
     description:
       "Learn how industry knowledge can be organized into products, processes, participants, regulations, systems, and connected business concepts.",
-    image: "/figma-assets/industry-knowledge-structure.png",
+    image: "/images/site-updates/iks-industry-knowledge-hub.png",
   },
   {
     path: "/use-cases",
     title: "KDD Use Cases | Industry Knowledge Applications",
     description:
       "See practical use cases for applying industry knowledge in software projects, business analysis, product design, and professional learning.",
-    image: "/figma-assets/use-cases-hero.png",
+    image: "/images/site-updates/kdd-knowledge-ecosystem.png",
   },
   {
     path: "/industry-aware-students",
@@ -112,10 +119,24 @@ export const routes = [
     image: "/figma-assets/industry-aware-students.png",
   },
   {
-    path: "/contact-us",
-    title: "Contact KDD Educations",
+    path: "/learning-resources",
+    title: "Learning Resources | KDD Educations",
     description:
-      "Contact KDD Educations for course questions, learning resources, domain knowledge programs, and Knowledge Driven Development inquiries.",
+      "Explore KDD and Industry Knowledge Structure through courses, videos, books, a downloadable presentation, articles, research papers, and webinars.",
+    image: "/learning-resources/resources-overview.png",
+  },
+  {
+    path: "/faq-1",
+    title: "FAQs | KDD Educations",
+    description:
+      "Find answers about Knowledge Driven Development, its framework and methodology, benefits for industry and academia, and its relevance to generative AI.",
+    image: "/images/site-updates/kdd-knowledge-to-execution.png",
+  },
+  {
+    path: "/about-us",
+    title: "About Us | KDD Educations",
+    description:
+      "Learn about KDD Educations, our vision, and our work to make industry knowledge structured, accessible, and practical for students and professionals.",
     image: "/figma-assets/course-preview.png",
   },
   {

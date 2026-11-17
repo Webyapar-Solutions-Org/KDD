@@ -1,3 +1,6 @@
+import { udemyCourseUrl } from "@/lib/course";
+import SiteLogo from "@/components/SiteLogo";
+import { socialLinks } from "@/lib/social-links";
 import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
@@ -7,39 +10,10 @@ export const metadata = createMetadata(getRouteSeo("/industry-aware-students"));
 
 const sections = [
   {
-    eyebrow: "Section 1: Domain knowledge and students",
-    title: "Domain skill is crucial for software development",
-    text: [
-      "Software implements domain knowledge for bringing in sensible automation in executing business processes of an organisation.",
-      "IKS makes it possible to introduce industry knowledge in academia in a formal way, plugging an open industry-academia gap.",
-    ],
-    imageFirst: true,
-  },
-  {
     title: "Industry knowledge is key to a management student",
     text: [
       "Management colleges traditionally focus on horizontal domains such as HR and Marketing.",
       "Vertical domain that are industries such as life insurance, Banking and Healthcare - are needed so that the students can work effectively in these industries. IKS makes it easy to learn industry knowledge.",
-    ],
-    imageFirst: true,
-  },
-  {
-    eyebrow: "Section 2: Gaining IKS Skill in Five Steps",
-    title: "Learning IKS - From Foundation to Industry Application",
-    text: [
-      "In the 5 step learning process, the first 3 can be acquired by going through the Udemy course link provided in the landing page.",
-      "For Step 4, page Domain Knowledge Details provides glimpses of other industries using IKS so that students can themselves start applying IKS to other industries.",
-      "Step 5 needs practitioner level skill and KDD Educations can be connected for the same.",
-    ],
-    muted: true,
-  },
-  {
-    eyebrow: "Section 3: IKS - Fast Track Learning for Job Readiness",
-    title: "Preparing industry aware students",
-    text: [
-      "While academia will take time to introduce industry knowledge in a domain agnostic way, we have an immediate proposal for students.",
-      "Students can go through the Udemy course, look at the supporting materials available in the Domain Knowledge Details page, practice applying IKS in other domains, update CV and flaunt this skill in the interview.",
-      "This will significantly increase their chances of them getting selected as it will be a pleasant surprise to the interview board - that the student has an awareness level knowledge about industry.",
     ],
     imageFirst: true,
   },
@@ -56,22 +30,6 @@ const sections = [
   },
 ];
 
-function Logo({ inverse = false }: { inverse?: boolean }) {
-  return (
-    <Link href="/" className="flex items-center gap-2.5">
-      <div className="grid size-[38px] place-items-center rounded-[11px] bg-[#2563eb] font-display text-[17px] font-extrabold text-white">
-        K
-      </div>
-      <span
-        className={`font-display text-[17px] font-extrabold ${
-          inverse ? "text-white" : "text-[#11213a]"
-        }`}
-      >
-        KDD Educations
-      </span>
-    </Link>
-  );
-}
 
 function Header() {
   return <SiteHeader active="applications" />;
@@ -154,7 +112,7 @@ function CtaSection() {
           </div>
         </div>
         <a
-          href="#"
+          href={udemyCourseUrl} target="_blank" rel="noopener noreferrer"
           className="w-fit rounded-full bg-white px-[22px] py-3.5 font-bold text-[#2563eb]"
         >
           Enroll on Udemy &rarr;
@@ -170,7 +128,7 @@ function Footer() {
       <div className="mx-auto w-full max-w-[1280px] px-5 py-8 lg:px-0">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,380px)_1fr]">
           <div>
-            <Logo inverse />
+            <SiteLogo inverse />
             <p className="mt-4 max-w-[377px] text-sm leading-[1.55] text-[#9fb1c7]">
               Helping learners bridge industry knowledge and real-world application
               through courses, books, and practical resources.
@@ -190,12 +148,8 @@ function Footer() {
             <div>
               <h3 className="font-bold text-white">Social Links</h3>
               <div className="mt-4 grid gap-2.5 text-sm text-[#9fb1c7]">
-                {[
-                  ["YouTube", "/figma-assets/youtube.svg"],
-                  ["LinkedIn", "/figma-assets/linkedin.svg"],
-                  ["Instagram", "/figma-assets/instagram.svg"],
-                ].map(([label, icon]) => (
-                  <a key={label} href="#" className="flex items-center gap-3">
+                {socialLinks.map(({ label, icon, href }) => (
+                  <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={`${label} (opens in a new tab)`} className="flex items-center gap-3">
                     <Image src={icon} alt="" width={24} height={24} />
                     {label}
                   </a>
@@ -212,10 +166,6 @@ function Footer() {
                   <Image src="/figma-assets/mail.svg" alt="" width={24} height={24} />
                   ceo@kddeducations.com
                 </a>
-                <div className="flex items-center gap-3">
-                  <Image src="/figma-assets/phone.svg" alt="" width={24} height={24} />
-                  +91 987 654 3210
-                </div>
               </div>
             </div>
           </div>
@@ -265,6 +215,9 @@ export default function IndustryAwareStudents() {
               The objective is to bridge academia and industry through structured
               exposure to real-world business environments, strengthening understanding
               and employability.
+            </p>
+            <p className="mt-6 max-w-[627px] text-[19px] leading-[1.6] text-[#64748b]">
+              Here are the details through which students gain an overall exposure of industry knowledge.
             </p>
           </div>
           <PhotoCard />

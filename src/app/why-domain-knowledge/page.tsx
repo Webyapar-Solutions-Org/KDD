@@ -1,3 +1,6 @@
+import { udemyCourseUrl } from "@/lib/course";
+import SiteLogo from "@/components/SiteLogo";
+import { socialLinks } from "@/lib/social-links";
 import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
@@ -23,22 +26,6 @@ const importancePoints = [
   "Identify inaccuracies or hallucinations in AI responses",
 ];
 
-function Logo({ inverse = false }: { inverse?: boolean }) {
-  return (
-    <Link href="/" className="flex items-center gap-2.5">
-      <div className="grid size-[38px] place-items-center rounded-[11px] bg-[#2563eb] font-display text-[17px] font-extrabold text-white">
-        K
-      </div>
-      <span
-        className={`font-display text-[17px] font-extrabold ${
-          inverse ? "text-white" : "text-[#11213a]"
-        }`}
-      >
-        KDD Educations
-      </span>
-    </Link>
-  );
-}
 
 function Pill({ children }: { children: React.ReactNode }) {
   return (
@@ -69,12 +56,12 @@ function FramedImage({
           : "border border-[#b9d2ff] bg-white"
       }`}
     >
-      <div className="relative aspect-[1.84] overflow-hidden rounded-[16px]">
+      <div className="relative aspect-[4/3] overflow-hidden rounded-[16px]">
         <Image
           src={src}
           alt={alt}
           fill
-          className="object-cover"
+          className="object-contain"
           sizes="(min-width: 1024px) 597px, 100vw"
         />
       </div>
@@ -100,7 +87,7 @@ function CtaSection() {
           </div>
         </div>
         <a
-          href="#"
+          href={udemyCourseUrl} target="_blank" rel="noopener noreferrer"
           className="w-fit rounded-full bg-white px-[22px] py-3.5 font-bold text-[#2563eb]"
         >
           Enroll on Udemy &rarr;
@@ -116,7 +103,7 @@ function Footer() {
       <div className="mx-auto w-full max-w-[1280px] px-5 py-8 lg:px-0">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,380px)_1fr]">
           <div>
-            <Logo inverse />
+            <SiteLogo inverse />
             <p className="mt-4 max-w-[377px] text-sm leading-[1.55] text-[#9fb1c7]">
               Helping learners bridge industry knowledge and real-world application
               through courses, books, and practical resources.
@@ -137,12 +124,8 @@ function Footer() {
             <div>
               <h3 className="font-bold text-white">Social Links</h3>
               <div className="mt-4 grid gap-2.5 text-sm text-[#9fb1c7]">
-                {[
-                  ["YouTube", "/figma-assets/youtube.svg"],
-                  ["LinkedIn", "/figma-assets/linkedin.svg"],
-                  ["Instagram", "/figma-assets/instagram.svg"],
-                ].map(([label, icon]) => (
-                  <a key={label} href="#" className="flex items-center gap-3">
+                {socialLinks.map(({ label, icon, href }) => (
+                  <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={`${label} (opens in a new tab)`} className="flex items-center gap-3">
                     <Image src={icon} alt="" width={24} height={24} />
                     {label}
                   </a>
@@ -159,10 +142,6 @@ function Footer() {
                   <Image src="/figma-assets/mail.svg" alt="" width={24} height={24} />
                   ceo@kddeducations.com
                 </a>
-                <div className="flex items-center gap-3">
-                  <Image src="/figma-assets/phone.svg" alt="" width={24} height={24} />
-                  +91 987 654 3210
-                </div>
               </div>
             </div>
           </div>
@@ -233,13 +212,13 @@ export default function WhyDomainKnowledge() {
           </div>
 
           <div className="relative mx-auto w-full max-w-[597px]">
-            <div className="relative aspect-[1.78] overflow-hidden rounded-[20px] shadow-[0_28px_70px_rgba(8,28,53,0.22)]">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[20px] shadow-[0_28px_70px_rgba(8,28,53,0.22)]">
               <Image
-                src="/figma-assets/domain-hero.png"
-                alt="Professionals mapping business domain knowledge"
+                src="/images/site-updates/professional-skills-pillars.png"
+                alt="Domain knowledge connecting managerial, technical, and procedural skills"
                 fill
                 priority
-                className="object-cover"
+                className="object-contain"
                 sizes="(min-width: 1024px) 597px, 100vw"
               />
             </div>
@@ -250,8 +229,8 @@ export default function WhyDomainKnowledge() {
       <section className="bg-white">
         <div className="mx-auto grid w-full max-w-[1280px] gap-12 px-5 py-20 lg:grid-cols-[minmax(0,597px)_minmax(0,597px)] lg:items-center lg:gap-[86px] lg:px-0 lg:py-[100px]">
           <FramedImage
-            src="/figma-assets/domain-challenge.png"
-            alt="Industry knowledge scattered across documents, systems, people, and projects"
+            src="/images/site-updates/domain-knowledge-challenges.png"
+            alt="Challenges in domain knowledge management"
             dark
           />
           <div>
@@ -263,9 +242,7 @@ export default function WhyDomainKnowledge() {
               Industry knowledge is critical, but it is often difficult to acquire.
             </p>
             <p className="mt-5 text-[17px] leading-[1.6] text-[#64748b]">
-              Knowledge is spread across documents, systems, people, projects, and
-              experience in unstructured forms. This creates a long and inconsistent
-              learning curve.
+              Knowledge is scattered across documents, systems, people, and projects, often without a structured representation.
             </p>
             <p className="mt-7 font-display text-[22px] font-bold leading-[1.4] text-[#64748b]">
               If industry knowledge could be structured, learning could become
@@ -307,8 +284,8 @@ export default function WhyDomainKnowledge() {
             </div>
           </div>
           <FramedImage
-            src="/figma-assets/domain-importance.png"
-            alt="Professional reviewing structured industry knowledge and AI systems"
+            src="/images/site-updates/domain-knowledge-importance.png"
+            alt="Why domain knowledge matters more alongside technology and AI"
           />
         </div>
       </section>

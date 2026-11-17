@@ -1,16 +1,19 @@
+import { udemyCourseUrl } from "@/lib/course";
+import SiteLogo from "@/components/SiteLogo";
+import { socialLinks } from "@/lib/social-links";
 import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
 import { createMetadata, getRouteSeo } from "@/lib/seo";
 
-export const metadata = createMetadata(getRouteSeo("/contact-us"));
+export const metadata = createMetadata(getRouteSeo("/about-us"));
 
 const visionPoints = [
-  "Structure and navigate knowledge across industries",
-  "Complement software development and project methodologies",
-  "Support enterprise knowledge management",
-  "Bridge the gap between academia and industry",
-  "Enable structured and reusable industry knowledge",
+  "One Structure detailing multiple industries",
+  "Bridging industry academia gap",
+  "Indian Institute of Functionality on the lines of IIT and IIM",
+  "Simplifying project delivery and business operations",
+  "A new approach to enterprise knowledge management",
 ];
 
 const focusCards = [
@@ -28,26 +31,10 @@ const focusCards = [
   {
     number: "03",
     title: "Working Professionals",
-    text: "Strengthen, connect, and expand existing industry knowledge.",
+    text: "Map existing industry knowledge into industry knowledge structure and promote its reuse.",
   },
 ];
 
-function Logo({ inverse = false }: { inverse?: boolean }) {
-  return (
-    <Link href="/" className="flex items-center gap-2.5">
-      <div className="grid size-[38px] place-items-center rounded-[11px] bg-[#2563eb] font-display text-[17px] font-extrabold text-white">
-        K
-      </div>
-      <span
-        className={`font-display text-[17px] font-extrabold ${
-          inverse ? "text-white" : "text-[#11213a]"
-        }`}
-      >
-        KDD Educations
-      </span>
-    </Link>
-  );
-}
 
 function Pill({
   children,
@@ -68,7 +55,7 @@ function Pill({
 }
 
 function Header() {
-  return <SiteHeader active="contact" />;
+  return <SiteHeader active="about" />;
 }
 
 function CtaSection() {
@@ -89,7 +76,7 @@ function CtaSection() {
           </div>
         </div>
         <a
-          href="#"
+          href={udemyCourseUrl} target="_blank" rel="noopener noreferrer"
           className="w-fit rounded-full bg-white px-[22px] py-3.5 font-bold text-[#2563eb]"
         >
           Enroll on Udemy &rarr;
@@ -105,7 +92,7 @@ function Footer() {
       <div className="mx-auto w-full max-w-[1280px] px-5 py-8 lg:px-0">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,380px)_1fr]">
           <div>
-            <Logo inverse />
+            <SiteLogo inverse />
             <p className="mt-4 max-w-[377px] text-sm leading-[1.55] text-[#9fb1c7]">
               Helping learners bridge industry knowledge and real-world application
               through courses, books, and practical resources.
@@ -120,18 +107,14 @@ function Footer() {
                 <Link href="/industry-knowledge-structure">Industry Knowledge Structure</Link>
                 <Link href="/use-cases">Use Cases</Link>
                 <Link href="/industry-aware-students">Industry-Aware Students</Link>
-                <Link href="/contact-us">Contact Us</Link>
+                <Link href="/about-us">About Us</Link>
               </div>
             </div>
             <div>
               <h3 className="font-bold text-white">Social Links</h3>
               <div className="mt-4 grid gap-2.5 text-sm text-[#9fb1c7]">
-                {[
-                  ["YouTube", "/figma-assets/youtube.svg"],
-                  ["LinkedIn", "/figma-assets/linkedin.svg"],
-                  ["Instagram", "/figma-assets/instagram.svg"],
-                ].map(([label, icon]) => (
-                  <a key={label} href="#" className="flex items-center gap-3">
+                {socialLinks.map(({ label, icon, href }) => (
+                  <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={`${label} (opens in a new tab)`} className="flex items-center gap-3">
                     <Image src={icon} alt="" width={24} height={24} />
                     {label}
                   </a>
@@ -148,10 +131,6 @@ function Footer() {
                   <Image src="/figma-assets/mail.svg" alt="" width={24} height={24} />
                   ceo@kddeducations.com
                 </a>
-                <div className="flex items-center gap-3">
-                  <Image src="/figma-assets/phone.svg" alt="" width={24} height={24} />
-                  +91 987 654 3210
-                </div>
               </div>
             </div>
           </div>
@@ -178,7 +157,7 @@ function Footer() {
   );
 }
 
-export default function ContactUs() {
+export default function AboutUs() {
   return (
     <main className="min-h-screen bg-white text-[#11213a]">
       <Header />
@@ -187,7 +166,7 @@ export default function ContactUs() {
         <div className="mx-auto grid w-full max-w-[1280px] gap-10 px-5 pb-16 pt-12 lg:min-h-[669px] lg:grid-cols-[minmax(0,625px)_minmax(0,565px)] lg:items-start lg:px-0">
           <div>
             <p className="text-[13px] font-bold text-[#2563eb]">
-              Home &gt; Learning Resources
+              Home &gt; About Us
             </p>
             <div className="mt-12">
               <Pill>About KDD Educations</Pill>
@@ -196,8 +175,7 @@ export default function ContactUs() {
               Knowledge made structured, accessible, and practical.
             </h1>
             <p className="mt-7 max-w-[625px] text-[19px] leading-[1.6] text-[#64748b]">
-              KDD Educations is transforming how industry and enterprise knowledge
-              is structured, learned, and applied.
+              KDD Educations is an initiative focused on transforming how industry, enterprise and project knowledge is structured, learned, and applied.
             </p>
           </div>
 
@@ -228,20 +206,18 @@ export default function ContactUs() {
               Connect with us on social media
             </p>
             <div className="mt-3 flex gap-3">
-              <a
-                href="#"
-                aria-label="LinkedIn"
-                className="grid size-[46px] place-items-center rounded-[14px] border border-[#dbe5f3]"
-              >
-                <Image src="/figma-assets/linkedin.svg" alt="" width={21} height={21} />
-              </a>
-              <a
-                href="#"
-                aria-label="YouTube"
-                className="grid size-[46px] place-items-center rounded-[14px] border border-[#dbe5f3]"
-              >
-                <Image src="/figma-assets/youtube.svg" alt="" width={24} height={17} />
-              </a>
+              {socialLinks.map(({ label, icon, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${label} (opens in a new tab)`}
+                  className="grid size-[46px] place-items-center rounded-[14px] border border-[#dbe5f3]"
+                >
+                  <Image src={icon} alt="" width={24} height={24} />
+                </a>
+              ))}
             </div>
           </aside>
         </div>
@@ -257,8 +233,7 @@ export default function ContactUs() {
           </div>
           <div className="space-y-5 text-[17px] leading-[1.6] text-[#64748b] lg:pt-[50px]">
             <p>
-              KDD Educations is an initiative focused on transforming how industry
-              and enterprise knowledge is structured, learned, and applied.
+              KDD Educations is largely a group of volunteers with skills in domain, technology, sales aimed at simplifying project delivery and operations and reducing industry academia gap.
             </p>
             <p>
               Built on research and practical experience, Knowledge-Driven Development
@@ -274,12 +249,10 @@ export default function ContactUs() {
           <div>
             <Pill dark>Our Vision</Pill>
             <h2 className="mt-5 font-display text-[36px] font-extrabold leading-[1.08] tracking-[-0.045em] text-white sm:text-[52px]">
-              A reusable knowledge framework for industry and education.
+              A reusable knowledge framework for industry and academia.
             </h2>
             <p className="mt-5 text-[17px] leading-[1.6] text-[#b6c5d8]">
-              We envision KDD as a practical framework that strengthens how
-              organizations, professionals, and students understand and apply
-              knowledge.
+              Knowledge to be prefixed by industry knowledge.
             </p>
           </div>
           <div className="grid gap-3">
@@ -306,8 +279,7 @@ export default function ContactUs() {
               Structured Industry Knowledge
             </h2>
             <p className="mt-5 text-[17px] leading-[1.6] text-[#64748b]">
-              We are developing introductory industry learning resources that help
-              people understand their domain faster and connect knowledge with real work.
+              We are developing introductory industry learning resources that help people understand their domain faster and connect knowledge with real work.
             </p>
           </div>
           <div className="mt-11 grid gap-5 md:grid-cols-3">

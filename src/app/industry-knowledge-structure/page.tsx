@@ -1,3 +1,6 @@
+import { udemyCourseUrl } from "@/lib/course";
+import SiteLogo from "@/components/SiteLogo";
+import { socialLinks } from "@/lib/social-links";
 import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
@@ -11,7 +14,7 @@ const challenges = [
     items: [
       {
         role: "Senior management:",
-        text: "Why do our teams still struggle to understand the customer's language despite years of relationship?",
+        text: "I liked the structured representation of information. Let’s implement it in the project so our teams can understand the customer’s language more clearly and consistently.",
       },
       {
         role: "Business analyst / Test analyst / Product Owner:",
@@ -40,7 +43,7 @@ const challenges = [
     items: [
       {
         role: "Engineering and science students aiming to join IT Industry:",
-        text: "With AI in everyone's CV, we need a differentiating skill to crack the interview.",
+        text: "Use IKS as a differentiating skill for interviews, projects, and industry readiness.",
       },
       {
         role: "Students of business / management schools:",
@@ -56,7 +59,7 @@ const resolutions = [
     items: [
       {
         role: "Senior management:",
-        text: "I liked the structured representation of information, let us implement it in the project for experience certainty.",
+        text: "I liked the structured representation of information. Let’s implement it in the project so our teams can understand the customer’s language more clearly and consistently.",
       },
       {
         role: "Business analyst / Test analyst / Product Owner:",
@@ -107,22 +110,6 @@ const overviewCards = [
   },
 ];
 
-function Logo({ inverse = false }: { inverse?: boolean }) {
-  return (
-    <Link href="/" className="flex items-center gap-2.5">
-      <div className="grid size-[38px] place-items-center rounded-[11px] bg-[#2563eb] font-display text-[17px] font-extrabold text-white">
-        K
-      </div>
-      <span
-        className={`font-display text-[17px] font-extrabold ${
-          inverse ? "text-white" : "text-[#11213a]"
-        }`}
-      >
-        KDD Educations
-      </span>
-    </Link>
-  );
-}
 
 function Pill({ children }: { children: React.ReactNode }) {
   return (
@@ -187,7 +174,7 @@ function CtaSection() {
           </div>
         </div>
         <a
-          href="#"
+          href={udemyCourseUrl} target="_blank" rel="noopener noreferrer"
           className="w-fit rounded-full bg-white px-[22px] py-3.5 font-bold text-[#2563eb]"
         >
           Enroll on Udemy &rarr;
@@ -203,7 +190,7 @@ function Footer() {
       <div className="mx-auto w-full max-w-[1280px] px-5 py-8 lg:px-0">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,380px)_1fr]">
           <div>
-            <Logo inverse />
+            <SiteLogo inverse />
             <p className="mt-4 max-w-[377px] text-sm leading-[1.55] text-[#9fb1c7]">
               Helping learners bridge industry knowledge and real-world application
               through courses, books, and practical resources.
@@ -223,12 +210,8 @@ function Footer() {
             <div>
               <h3 className="font-bold text-white">Social Links</h3>
               <div className="mt-4 grid gap-2.5 text-sm text-[#9fb1c7]">
-                {[
-                  ["YouTube", "/figma-assets/youtube.svg"],
-                  ["LinkedIn", "/figma-assets/linkedin.svg"],
-                  ["Instagram", "/figma-assets/instagram.svg"],
-                ].map(([label, icon]) => (
-                  <a key={label} href="#" className="flex items-center gap-3">
+                {socialLinks.map(({ label, icon, href }) => (
+                  <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={`${label} (opens in a new tab)`} className="flex items-center gap-3">
                     <Image src={icon} alt="" width={24} height={24} />
                     {label}
                   </a>
@@ -245,10 +228,6 @@ function Footer() {
                   <Image src="/figma-assets/mail.svg" alt="" width={24} height={24} />
                   ceo@kddeducations.com
                 </a>
-                <div className="flex items-center gap-3">
-                  <Image src="/figma-assets/phone.svg" alt="" width={24} height={24} />
-                  +91 987 654 3210
-                </div>
               </div>
             </div>
           </div>
@@ -291,34 +270,19 @@ export default function IndustryKnowledgeStructure() {
               <span className="text-[#2563eb]">structured approach.</span>
             </h1>
             <p className="mt-8 max-w-[600px] text-[19px] leading-[1.58] text-[#64748b]">
-              Every industry contains products, processes, activities, terminology,
-              business rules, and operational practices. IKS organizes these pieces
-              and makes their relationships easier to understand, navigate, and learn.
+              Every industry contains products, processes, activities, terminology, business rules, and business data amongst many other constituents that define it. Industry Knowledge Structure (IKS) organizes these constituents and makes their relationships easier to understand, navigate, and learn.
             </p>
           </div>
-          <div className="relative aspect-[1.29] w-full overflow-hidden rounded-[24px] shadow-[0_28px_70px_rgba(8,28,53,0.22)]">
+          <div className="relative aspect-[3/2] w-full overflow-hidden rounded-[24px] shadow-[0_28px_70px_rgba(8,28,53,0.22)]">
             <Image
-              src="/figma-assets/industry-knowledge-structure.png"
-              alt="Instructor explaining industry knowledge structure"
+              src="/images/site-updates/iks-industry-knowledge-hub.png"
+              alt="Industry Knowledge Structure as a connected industry knowledge hub"
               fill
               priority
-              className="object-cover"
+              className="object-contain"
               sizes="(min-width: 1024px) 579px, 100vw"
             />
           </div>
-        </div>
-      </section>
-
-      <section className="bg-white">
-        <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-20 px-5 py-20 lg:px-0 lg:py-24">
-          <TextGroup
-            title="Domain related challenges from various stakeholders"
-            sections={challenges}
-          />
-          <TextGroup
-            title="Resolution to domain related challenges using IKS"
-            sections={resolutions}
-          />
         </div>
       </section>
 
@@ -326,23 +290,20 @@ export default function IndustryKnowledgeStructure() {
         <div className="mx-auto w-full max-w-[1280px] px-5 py-20 lg:px-0 lg:py-24">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,655px)_1fr] lg:items-center">
             <div>
-              <Pill>Understanding IKS</Pill>
+              <Pill>Understanding Industry Knowledge Structure</Pill>
               <h2 className="mt-6 font-display text-[38px] font-extrabold leading-[1.07] tracking-[-0.045em] text-[#11213a] sm:text-[56px]">
                 See how knowledge connects across industries.
               </h2>
               <p className="mt-6 max-w-[655px] text-lg leading-[1.58] text-[#64748b]">
-                The KDD Framework introduces the basic structure of IKS. This page
-                focuses on applying that structure to real industries and addressing
-                domain-knowledge challenges faced by stakeholders in industry and
-                academia.
+                The KDD Framework page introduces the basic structure of IKS. This page explains the structure once again and focuses on applying that structure to real industries.
               </p>
             </div>
-            <div className="relative aspect-[1.6] w-full overflow-hidden rounded-[24px] shadow-[0_28px_70px_rgba(8,28,53,0.22)]">
+            <div className="relative aspect-[3/2] w-full overflow-hidden rounded-[24px] shadow-[0_28px_70px_rgba(8,28,53,0.22)]">
               <Image
-                src="/figma-assets/industry-knowledge-structure.png"
-                alt="Industry knowledge structure overview"
+                src="/images/site-updates/industry-knowledge-connected.png"
+                alt="Connected industry knowledge across industries"
                 fill
-                className="object-cover"
+                className="object-contain"
                 sizes="(min-width: 1024px) 590px, 100vw"
               />
             </div>
@@ -374,6 +335,19 @@ export default function IndustryKnowledgeStructure() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-20 px-5 py-20 lg:px-0 lg:py-24">
+          <TextGroup
+            title="Domain related challenges from various stakeholders"
+            sections={challenges}
+          />
+          <TextGroup
+            title="Resolution to domain related challenges using IKS"
+            sections={resolutions}
+          />
         </div>
       </section>
 

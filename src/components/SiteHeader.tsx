@@ -1,9 +1,13 @@
 "use client";
 
+import { udemyCourseUrl } from "@/lib/course";
+
+import SiteLogo from "@/components/SiteLogo";
+
 import Link from "next/link";
 import { useState } from "react";
 
-type ActiveSection = "explore" | "applications" | "learning" | "contact";
+type ActiveSection = "home" | "course" | "explore" | "applications" | "learning" | "faq" | "about";
 
 const exploreLinks = [
   { label: "Why Domain Knowledge", href: "/why-domain-knowledge" },
@@ -19,18 +23,6 @@ const applicationLinks = [
   { label: "Industry-Aware Students", href: "/industry-aware-students" },
 ];
 
-function Logo() {
-  return (
-    <Link href="/" className="flex items-center gap-2.5">
-      <div className="grid size-[38px] place-items-center rounded-[11px] bg-[#2563eb] font-display text-[17px] font-extrabold text-white">
-        K
-      </div>
-      <span className="font-display text-[17px] font-extrabold text-[#11213a]">
-        KDD Educations
-      </span>
-    </Link>
-  );
-}
 
 function Dropdown({
   label,
@@ -71,14 +63,14 @@ export default function SiteHeader({ active }: { active: ActiveSection }) {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#dbe5f3] bg-white/95 backdrop-blur-[14px]">
-      <div className="mx-auto flex min-h-[78px] w-full max-w-[1280px] items-center justify-between gap-4 px-5 py-4 lg:px-0">
-        <Logo />
+      <div className="mx-auto flex min-h-[78px] w-full max-w-[1280px] items-center justify-between gap-4 px-5 py-4 xl:px-0">
+        <SiteLogo />
         <button
           type="button"
           aria-label="Toggle navigation menu"
           aria-expanded={isOpen}
           onClick={() => setIsOpen((open) => !open)}
-          className="grid size-11 place-items-center rounded-lg border border-[#dbe5f3] text-[#11213a] md:hidden"
+          className="grid size-11 place-items-center rounded-lg border border-[#dbe5f3] text-[#11213a] xl:hidden"
         >
           <span className="flex w-5 flex-col gap-1.5">
             <span className="h-0.5 w-full rounded-full bg-current" />
@@ -86,7 +78,7 @@ export default function SiteHeader({ active }: { active: ActiveSection }) {
             <span className="h-0.5 w-full rounded-full bg-current" />
           </span>
         </button>
-        <nav className="hidden flex-1 flex-wrap items-center justify-end gap-x-6 gap-y-2 md:flex md:flex-none lg:gap-x-[30px]">
+        <nav className="hidden flex-none items-center justify-end gap-x-[30px] xl:flex">
           <Dropdown
             label="Explore KDD"
             active={active === "explore"}
@@ -98,15 +90,42 @@ export default function SiteHeader({ active }: { active: ActiveSection }) {
             links={applicationLinks}
           />
           <Link
-            href="/contact-us"
+            href="/course"
+            aria-current={active === "course" ? "page" : undefined}
             className={`py-2 text-sm font-semibold ${
-              active === "contact" ? "text-[#2563eb]" : "text-[#11213a]"
+              active === "course" ? "text-[#2563eb]" : "text-[#11213a]"
             }`}
           >
-            Contact Us
+            Course
+          </Link>
+          <Link
+            href="/learning-resources"
+            aria-current={active === "learning" ? "page" : undefined}
+            className={`py-2 text-sm font-semibold ${
+              active === "learning" ? "text-[#2563eb]" : "text-[#11213a]"
+            }`}
+          >
+            Learning Resources
+          </Link>
+          <Link
+            href="/faq-1"
+            aria-current={active === "faq" ? "page" : undefined}
+            className={`py-2 text-sm font-semibold ${
+              active === "faq" ? "text-[#2563eb]" : "text-[#11213a]"
+            }`}
+          >
+            FAQs
+          </Link>
+          <Link
+            href="/about-us"
+            className={`py-2 text-sm font-semibold ${
+              active === "about" ? "text-[#2563eb]" : "text-[#11213a]"
+            }`}
+          >
+            About Us
           </Link>
           <a
-            href="#"
+            href={udemyCourseUrl} target="_blank" rel="noopener noreferrer"
             className="rounded-full bg-[#2563eb] px-[22px] py-3.5 text-sm font-bold text-white transition hover:bg-[#1d4ed8]"
           >
             Enroll on Udemy &rarr;
@@ -114,7 +133,7 @@ export default function SiteHeader({ active }: { active: ActiveSection }) {
         </nav>
       </div>
       {isOpen ? (
-        <nav className="absolute left-0 right-0 top-full z-50 border-t border-[#dbe5f3] bg-white px-5 py-5 shadow-[0_18px_35px_rgba(17,33,58,0.12)] md:hidden">
+        <nav className="absolute left-0 right-0 top-full z-50 max-h-[calc(100dvh-100px)] overflow-y-auto border-t border-[#dbe5f3] bg-white px-5 py-5 shadow-[0_18px_35px_rgba(17,33,58,0.12)] xl:hidden">
           <div className="grid gap-5">
             <div>
               <p
@@ -159,16 +178,46 @@ export default function SiteHeader({ active }: { active: ActiveSection }) {
               </div>
             </div>
             <Link
-              href="/contact-us"
+              href="/course"
               onClick={() => setIsOpen(false)}
+              aria-current={active === "course" ? "page" : undefined}
               className={`text-sm font-semibold ${
-                active === "contact" ? "text-[#2563eb]" : "text-[#11213a]"
+                active === "course" ? "text-[#2563eb]" : "text-[#11213a]"
               }`}
             >
-              Contact Us
+              Course
+            </Link>
+            <Link
+              href="/learning-resources"
+              onClick={() => setIsOpen(false)}
+              aria-current={active === "learning" ? "page" : undefined}
+              className={`text-sm font-semibold ${
+                active === "learning" ? "text-[#2563eb]" : "text-[#11213a]"
+              }`}
+            >
+              Learning Resources
+            </Link>
+            <Link
+              href="/faq-1"
+              onClick={() => setIsOpen(false)}
+              aria-current={active === "faq" ? "page" : undefined}
+              className={`text-sm font-semibold ${
+                active === "faq" ? "text-[#2563eb]" : "text-[#11213a]"
+              }`}
+            >
+              FAQs
+            </Link>
+            <Link
+              href="/about-us"
+              onClick={() => setIsOpen(false)}
+              className={`text-sm font-semibold ${
+                active === "about" ? "text-[#2563eb]" : "text-[#11213a]"
+              }`}
+            >
+              About Us
             </Link>
             <a
-              href="#"
+              href={udemyCourseUrl} target="_blank" rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
               className="w-fit rounded-full bg-[#2563eb] px-[22px] py-3.5 text-sm font-bold text-white transition hover:bg-[#1d4ed8]"
             >
