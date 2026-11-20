@@ -102,6 +102,7 @@ function Footer() {
             <div>
               <h3 className="font-bold text-white">Explore</h3>
               <div className="mt-4 grid gap-2.5 text-sm text-[#9fb1c7]">
+                  <Link href="/faq-1">FAQs</Link>
                 <Link href="/why-domain-knowledge">Why Domain Knowledge</Link>
                 <Link href="/kdd-framework">KDD Framework</Link>
                 <Link href="/industry-knowledge-structure">Industry Knowledge Structure</Link>

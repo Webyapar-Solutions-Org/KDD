@@ -25,7 +25,6 @@ export default function SiteFooter() {
                 <Link href="/industry-knowledge-structure">Industry Knowledge Structure</Link>
                 <Link href="/use-cases">Use Cases</Link>
                 <Link href="/learning-resources">Learning Resources</Link>
-                <Link href="/course">Course</Link>
                 <Link href="/faq-1">FAQs</Link>
                 <Link href="/about-us">About Us</Link>
                 <Link href="/industry-aware-students">Industry-Aware Students</Link>

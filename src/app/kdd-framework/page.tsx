@@ -1,3 +1,4 @@
+import FrameworkStructureSection from "@/components/FrameworkStructureSection";
 import { udemyCourseUrl } from "@/lib/course";
 import SiteLogo from "@/components/SiteLogo";
 import { socialLinks } from "@/lib/social-links";
@@ -118,12 +119,13 @@ function Footer() {
             <div>
               <h3 className="font-bold text-white">Explore</h3>
               <div className="mt-4 grid gap-2.5 text-sm text-[#9fb1c7]">
+                  <Link href="/faq-1">FAQs</Link>
                 <Link href="/why-domain-knowledge">Why Domain Knowledge</Link>
                 <Link href="/kdd-framework">KDD Framework</Link>
                 <Link href="/industry-knowledge-structure">Industry Knowledge Structure</Link>
                 <Link href="/use-cases">Use Cases</Link>
                 <Link href="/industry-aware-students">Industry-Aware Students</Link>
-                <Link href="/">Learning Resources</Link>
+                <Link href="/learning-resources">Learning Resources</Link>
               </div>
             </div>
             <div>
@@ -256,69 +258,7 @@ export default function KddFramework() {
         </div>
       </section>
 
-      <section className="bg-[#071b34]">
-        <div className="mx-auto w-full max-w-[1280px] px-5 py-20 lg:px-0">
-          <div className="text-center">
-            <Pill dark>How KDD Works</Pill>
-            <h2 className="mt-4 font-display text-[32px] font-extrabold leading-[1.08] tracking-[-0.04em] text-white sm:text-[38px]">
-              One structure. Progressive detail.
-            </h2>
-          </div>
-
-          <div className="mt-16 rounded-[26px] border border-white/10 bg-[#0d2948] p-4 sm:p-10">
-            <div className="relative aspect-[1429/1100] overflow-hidden rounded-[20px]">
-              <Image
-                src="/images/site-updates/kdd-product-process-mesh.png"
-                alt="Product process mesh framework"
-                fill
-                className="object-contain"
-                sizes="(min-width: 1024px) 1200px, 100vw"
-              />
-            </div>
-          </div>
-
-          <div className="mt-10 grid items-center gap-8 lg:grid-cols-[84px_1fr_84px]">
-            <button
-              type="button"
-              aria-label="Previous framework step"
-              className="mx-auto grid size-[54px] place-items-center rounded-full bg-[#102e50] lg:size-[84px]"
-            >
-              <Image
-                src="/figma-assets/chevron-left.svg"
-                alt=""
-                width={34}
-                height={34}
-                className="rotate-180"
-              />
-            </button>
-            <div className="text-center">
-              <p className="text-xs font-extrabold uppercase tracking-[0.07em] text-[#7db4ff]">
-                01 / Product-Process Mesh
-              </p>
-              <h3 className="mx-auto mt-7 max-w-4xl font-display text-[34px] font-extrabold leading-[1.06] tracking-[-0.045em] text-white sm:text-[48px]">
-                Organise knowledge across two dimensions.
-              </h3>
-              <p className="mx-auto mt-7 max-w-4xl text-base leading-[1.58] text-[#b8c7d9]">
-                Product represents what an industry offers. Process represents the
-                activities performed across its lifecycle. Their intersection creates
-                a Node, where information is captured as Knowledge Nuggets.
-              </p>
-              <div className="mt-7 inline-flex rounded-2xl border border-[#b9d2ff] bg-[#f1f6ff] p-[22px]">
-                <p className="font-display text-lg font-extrabold text-[#2563eb]">
-                  Product × Process &rarr; Node &rarr; Knowledge Nuggets
-                </p>
-              </div>
-            </div>
-            <button
-              type="button"
-              aria-label="Next framework step"
-              className="mx-auto grid size-[54px] place-items-center rounded-full bg-[#102e50] lg:size-[84px]"
-            >
-              <Image src="/figma-assets/chevron-right.svg" alt="" width={34} height={34} />
-            </button>
-          </div>
-        </div>
-      </section>
+      <FrameworkStructureSection />
 
       <CtaSection />
       <Footer />

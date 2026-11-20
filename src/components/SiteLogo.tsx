@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function SiteLogo({ inverse = false }: { inverse?: boolean }) {
+export default function SiteLogo({ inverse = false, showName = true }: { inverse?: boolean; showName?: boolean }) {
   return (
     <Link href="/" aria-label="KDD Educations home" className="flex shrink-0 items-center gap-2.5">
       <Image
@@ -13,9 +13,11 @@ export default function SiteLogo({ inverse = false }: { inverse?: boolean }) {
         className={`h-auto w-[72px] shrink-0 ${inverse ? "brightness-[2]" : ""}`}
       />
       <span className="flex flex-col gap-1">
-        <span className={`font-display text-[16px] font-extrabold ${inverse ? "text-white" : "text-[#11213a]"}`}>
-          KDD Educations
-        </span>
+        {showName && (
+          <span className={`font-display text-[16px] font-extrabold ${inverse ? "text-white" : "text-[#11213a]"}`}>
+            KDD Educations
+          </span>
+        )}
         <span className={`text-[10px] font-semibold ${inverse ? "text-[#9fb1c7]" : "text-[#64748b]"}`}>
           Structuring Industry Knowledge
         </span>

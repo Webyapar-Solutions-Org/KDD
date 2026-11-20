@@ -37,11 +37,25 @@ function Dropdown({
     <div className="group relative">
       <button
         type="button"
-        className={`py-2 text-sm font-semibold ${
+        className={`inline-flex items-center gap-1.5 py-2 text-sm font-semibold ${
           active ? "text-[#2563eb]" : "text-[#11213a]"
         }`}
       >
         {label}
+        <svg
+          aria-hidden="true"
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="shrink-0 transition-transform group-hover:rotate-180 group-focus-within:rotate-180"
+        >
+          <path d="m6 9 6 6 6-6" />
+        </svg>
       </button>
       <div className="invisible absolute right-0 top-full z-30 min-w-64 rounded-xl border border-[#dbe5f3] bg-white p-2 opacity-0 shadow-[0_18px_35px_rgba(17,33,58,0.12)] transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
         {links.map((link) => (
@@ -64,7 +78,7 @@ export default function SiteHeader({ active }: { active: ActiveSection }) {
   return (
     <header className="sticky top-0 z-50 border-b border-[#dbe5f3] bg-white/95 backdrop-blur-[14px]">
       <div className="mx-auto flex min-h-[78px] w-full max-w-[1280px] items-center justify-between gap-4 px-5 py-4 xl:px-0">
-        <SiteLogo />
+        <SiteLogo showName={false} />
         <button
           type="button"
           aria-label="Toggle navigation menu"
@@ -90,15 +104,6 @@ export default function SiteHeader({ active }: { active: ActiveSection }) {
             links={applicationLinks}
           />
           <Link
-            href="/course"
-            aria-current={active === "course" ? "page" : undefined}
-            className={`py-2 text-sm font-semibold ${
-              active === "course" ? "text-[#2563eb]" : "text-[#11213a]"
-            }`}
-          >
-            Course
-          </Link>
-          <Link
             href="/learning-resources"
             aria-current={active === "learning" ? "page" : undefined}
             className={`py-2 text-sm font-semibold ${
@@ -106,15 +111,6 @@ export default function SiteHeader({ active }: { active: ActiveSection }) {
             }`}
           >
             Learning Resources
-          </Link>
-          <Link
-            href="/faq-1"
-            aria-current={active === "faq" ? "page" : undefined}
-            className={`py-2 text-sm font-semibold ${
-              active === "faq" ? "text-[#2563eb]" : "text-[#11213a]"
-            }`}
-          >
-            FAQs
           </Link>
           <Link
             href="/about-us"
@@ -178,16 +174,6 @@ export default function SiteHeader({ active }: { active: ActiveSection }) {
               </div>
             </div>
             <Link
-              href="/course"
-              onClick={() => setIsOpen(false)}
-              aria-current={active === "course" ? "page" : undefined}
-              className={`text-sm font-semibold ${
-                active === "course" ? "text-[#2563eb]" : "text-[#11213a]"
-              }`}
-            >
-              Course
-            </Link>
-            <Link
               href="/learning-resources"
               onClick={() => setIsOpen(false)}
               aria-current={active === "learning" ? "page" : undefined}
@@ -196,16 +182,6 @@ export default function SiteHeader({ active }: { active: ActiveSection }) {
               }`}
             >
               Learning Resources
-            </Link>
-            <Link
-              href="/faq-1"
-              onClick={() => setIsOpen(false)}
-              aria-current={active === "faq" ? "page" : undefined}
-              className={`text-sm font-semibold ${
-                active === "faq" ? "text-[#2563eb]" : "text-[#11213a]"
-              }`}
-            >
-              FAQs
             </Link>
             <Link
               href="/about-us"

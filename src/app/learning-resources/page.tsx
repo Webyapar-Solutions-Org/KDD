@@ -1,3 +1,4 @@
+import InitialHomeSections from "@/components/InitialHomeSections";
 import { udemyCourseUrl } from "@/lib/course";
 import { learningBooks as books } from "@/lib/learning-resources";
 import Image from "next/image";
@@ -126,15 +127,17 @@ export default function LearningResourcesPage() {
     <main className="min-h-screen bg-white text-[#11213a]">
       <SiteHeader active="learning" />
 
+      <InitialHomeSections />
+
       <section className="bg-[radial-gradient(circle_at_20%_20%,#ffffff_0%,#edf5ff_100%)]">
         <div className={`${container} grid items-center gap-12 lg:grid-cols-2`}>
           <div>
             <p className="mb-8 text-[13px] font-bold text-[#2563eb]"><Link href="/">Home</Link> / Learning Resources</p>
             <Pill>Learning Resources</Pill>
-            <h1 className="mt-6 font-display text-[42px] font-extrabold leading-[1.04] tracking-[-0.05em] sm:text-[58px] lg:text-[68px]">Build knowledge.<br /><span className="text-[#2563eb]">Connect the dots.</span></h1>
+            <h2 className="mt-6 font-display text-[42px] font-extrabold leading-[1.04] tracking-[-0.05em] sm:text-[58px] lg:text-[68px]">Build knowledge.<br /><span className="text-[#2563eb]">Connect the dots.</span></h2>
             <h2 className="mt-7 text-base font-bold">Learning objective</h2>
             <p className="mt-3 max-w-[610px] text-lg leading-[1.65] text-[#64748b]">Explore courses, videos, books, presentations and articles that explain how Knowledge Driven Development (KDD) and its constituent Industry Knowledge Structure (IKS) can support industry and academia as a foundational skill.</p>
-            <a href="#course" className={`${button} mt-7`}>Start learning <span aria-hidden="true">→</span></a>
+            <ExternalLink href={udemyCourseUrl} className={`${button} mt-7`}>Start learning</ExternalLink>
           </div>
           <div className="overflow-hidden rounded-[24px] border border-[#dbe5f3] bg-white p-4 shadow-[0_24px_60px_rgba(17,33,58,0.12)] sm:p-7">
             <Image src="/learning-resources/resources-overview.png" alt="KDD learning resources: courses, videos, books, presentations, and articles" width={1200} height={600} preload className="h-auto w-full rounded-xl" />

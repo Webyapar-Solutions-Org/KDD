@@ -1,3 +1,4 @@
+import CourseSections from "@/components/CourseSections";
 import { udemyCourseUrl } from "@/lib/course";
 import { learningBooks as books } from "@/lib/learning-resources";
 import SiteLogo from "@/components/SiteLogo";
@@ -130,13 +131,15 @@ export default function Home() {
       />
       <SiteHeader active="home" />
 
+      <CourseSections />
+
       <section className="bg-[radial-gradient(circle_at_25%_20%,#ffffff_0%,#f5f9ff_38%,#edf5ff_100%)]">
         <div className="mx-auto grid w-full max-w-[1280px] items-start gap-10 px-5 pb-10 pt-12 sm:pb-12 lg:grid-cols-[minmax(0,630px)_minmax(0,580px)] lg:px-0">
           <div>
             <Pill>Industry Knowledge Structure</Pill>
-            <h1 className="mt-6 font-display text-[42px] font-extrabold leading-[0.98] tracking-[-0.055em] text-[#11213a] sm:text-[58px] lg:text-[70px]">
+            <h2 className="mt-6 font-display text-[42px] font-extrabold leading-[0.98] tracking-[-0.055em] text-[#11213a] sm:text-[58px] lg:text-[70px]">
               Background to <span className="text-[#2563eb]">IKS</span>
-            </h1>
+            </h2>
             <p className="mt-7 max-w-[650px] text-lg leading-[1.55] text-[#64748b]">
               Knowledge Driven Development, also known as KDD is a Knowledge Structuring framework aimed at structuring industry, enterprise and project knowledge for faster delivery. One of its constituents is Industry Knowledge Structure that provides a common structure to specify any industry.
             </p>
@@ -339,6 +342,7 @@ export default function Home() {
               <div>
                 <h3 className="font-bold text-white">Explore</h3>
                 <div className="mt-4 grid gap-2.5 text-sm text-[#9fb1c7]">
+                  <Link href="/faq-1">FAQs</Link>
                   <Link href="/why-domain-knowledge">Why Domain Knowledge</Link>
                   <Link href="/kdd-framework">KDD Framework</Link>
                   <Link href="/industry-knowledge-structure">Industry Knowledge Structure</Link>
