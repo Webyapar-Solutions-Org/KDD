@@ -28,6 +28,31 @@ const knowledgeSteps = [
   },
 ];
 
+const introductionSlides = [
+  {
+    number: "03",
+    title: "KDD structures knowledge for faster delivery",
+    paragraphs: [
+      "Knowledge Driven Development (KDD) is all about structuring knowledge (DKF) for faster delivery (AKM).",
+      "It helps achieve the fine balance between knowledge and execution activities.",
+    ],
+    image: "/images/kdd-faster-delivery.png",
+    imageAlt:
+      "KDD connects the Domain Knowledge Framework and Atomic Knowledge Model, linking industry, enterprise, and project knowledge to project delivery.",
+  },
+  {
+    number: "04",
+    title: "What KDD Brings on Table",
+    paragraphs: [
+      "In both industry and academia, KDD introduces many firsts across knowledge and execution.",
+      "KDD transforms the way industry knowledge is structured, taught and applied.",
+    ],
+    image: "/images/kdd-brings-to-table.png",
+    imageAlt:
+      "KDD bridges knowledge and execution through quantifiable industry knowledge, academia, software development, and the Atomic Knowledge Model to improve project outcomes.",
+  },
+];
+
 
 function Pill({
   children,
@@ -123,9 +148,9 @@ function Footer() {
                 <Link href="/why-domain-knowledge">Why Domain Knowledge</Link>
                 <Link href="/kdd-framework">KDD Framework</Link>
                 <Link href="/industry-knowledge-structure">Industry Knowledge Structure</Link>
+                <Link href="/learning-resources">Learning Resources</Link>
                 <Link href="/use-cases">Use Cases</Link>
                 <Link href="/industry-aware-students">Industry-Aware Students</Link>
-                <Link href="/learning-resources">Learning Resources</Link>
               </div>
             </div>
             <div>
@@ -213,7 +238,9 @@ export default function KddFramework() {
                 From generic knowledge to implementable knowledge.
               </h2>
               <p className="mt-6 max-w-[655px] text-lg leading-[1.58] text-[#64748b]">
-                Successful delivery requires the right balance of knowledge and execution. Too much focus on knowledge can delay execution, while execution without sufficient knowledge can compromise the output. KDD optimises knowledge and execution.
+                There are three types of knowledge that a working professional should acquire: industry, enterprise and project knowledge.
+                <br/>Generic knowledge = Industry knowledge
+                <br/>Implementable knowledge = Project Knowledge
               </p>
             </div>
             <FrameworkImage
@@ -252,11 +279,71 @@ export default function KddFramework() {
 
           <div className="mt-10 rounded-2xl border border-[#b9d2ff] bg-[#f1f6ff] p-[22px] text-center">
             <p className="font-display text-lg font-extrabold text-[#2563eb]">
-              Generic Knowledge &rarr; Enterprise Knowledge &rarr; Implementable Knowledge
+              Industry Knowledge &rarr; Enterprise Knowledge &rarr; Project Knowledge
             </p>
           </div>
         </div>
       </section>
+
+      <section className="bg-[#f6f8fc]">
+        <div className="mx-auto grid w-full max-w-[1280px] gap-10 px-5 py-20 lg:grid-cols-2 lg:items-center lg:gap-12 lg:px-0 lg:py-[104px]">
+          <div>
+            <Pill>Understanding KDD</Pill>
+            <h2 className="mt-6 font-display text-[38px] font-extrabold leading-[1.06] tracking-[-0.05em] text-[#11213a] sm:text-[58px]">
+              From Industry Knowledge to implementable knowledge - An example
+            </h2>
+            <div className="mt-6 space-y-5 text-lg leading-[1.58] text-[#64748b]">
+              <p>
+                Through a simple interconnected example from retail banking domain, the terms industry, enterprise and project knowledge are explained.
+              </p>
+              <p>
+                It also indicates how enterprise knowledge can be kept in continuous improvement state post project delivery.
+              </p>
+            </div>
+          </div>
+          <div className="overflow-hidden rounded-[24px] bg-white shadow-[0_28px_70px_rgba(8,28,53,0.12)]">
+            <Image
+              src="/images/kdd-generic-to-implementable-original.png"
+              alt="Banking example showing industry knowledge, enterprise knowledge, project knowledge, and updated enterprise knowledge"
+              width={1536}
+              height={1024}
+              className="h-auto w-full"
+              sizes="(min-width: 1024px) 616px, 100vw"
+            />
+          </div>
+        </div>
+      </section>
+
+      {introductionSlides.map((slide, index) => (
+        <section
+          key={slide.number}
+          className={index % 2 === 0 ? "bg-[#f6f8fc]" : "bg-white"}
+        >
+          <div className="mx-auto grid w-full max-w-[1280px] gap-10 px-5 py-20 lg:grid-cols-2 lg:items-center lg:gap-12 lg:px-0 lg:py-[104px]">
+            <div>
+              <Pill>Understanding KDD</Pill>
+              <h2 className="mt-6 font-display text-[38px] font-extrabold leading-[1.06] tracking-[-0.05em] text-[#11213a] sm:text-[58px]">
+                {slide.title}
+              </h2>
+              <div className="mt-6 space-y-5 text-lg leading-[1.58] text-[#64748b]">
+                {slide.paragraphs.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+            </div>
+            <div className="overflow-hidden rounded-[24px] bg-white shadow-[0_28px_70px_rgba(8,28,53,0.12)]">
+              <Image
+                src={slide.image}
+                alt={slide.imageAlt}
+                width={1536}
+                height={1024}
+                className="h-auto w-full"
+                sizes="(min-width: 1024px) 616px, 100vw"
+              />
+            </div>
+          </div>
+        </section>
+      ))}
 
       <FrameworkStructureSection />
 

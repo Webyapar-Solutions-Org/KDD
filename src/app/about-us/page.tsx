@@ -106,6 +106,7 @@ function Footer() {
                 <Link href="/why-domain-knowledge">Why Domain Knowledge</Link>
                 <Link href="/kdd-framework">KDD Framework</Link>
                 <Link href="/industry-knowledge-structure">Industry Knowledge Structure</Link>
+                <Link href="/learning-resources">Learning Resources</Link>
                 <Link href="/use-cases">Use Cases</Link>
                 <Link href="/industry-aware-students">Industry-Aware Students</Link>
                 <Link href="/about-us">About Us</Link>
@@ -250,11 +251,8 @@ export default function AboutUs() {
           <div>
             <Pill dark>Our Vision</Pill>
             <h2 className="mt-5 font-display text-[36px] font-extrabold leading-[1.08] tracking-[-0.045em] text-white sm:text-[52px]">
-              A reusable knowledge framework for industry and academia.
+              A reusable knowledge management framework for industry and academia.
             </h2>
-            <p className="mt-5 text-[17px] leading-[1.6] text-[#b6c5d8]">
-              Knowledge to be prefixed by industry knowledge.
-            </p>
           </div>
           <div className="grid gap-3">
             {visionPoints.map((point) => (

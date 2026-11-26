@@ -64,6 +64,7 @@ export default function Course() {
                   <Link href="/why-domain-knowledge">Why Domain Knowledge</Link>
                   <Link href="/kdd-framework">KDD Framework</Link>
                   <Link href="/industry-knowledge-structure">Industry Knowledge Structure</Link>
+                  <Link href="/learning-resources">Learning Resources</Link>
                   <Link href="/use-cases">Use Cases</Link>
                   <Link href="/industry-aware-students">Industry-Aware Students</Link>
                   <Link href="/about-us">About Us</Link>

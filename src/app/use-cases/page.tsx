@@ -109,6 +109,7 @@ function Footer() {
                 <Link href="/why-domain-knowledge">Why Domain Knowledge</Link>
                 <Link href="/kdd-framework">KDD Framework</Link>
                 <Link href="/industry-knowledge-structure">Industry Knowledge Structure</Link>
+                <Link href="/learning-resources">Learning Resources</Link>
                 <Link href="/use-cases">Use Cases</Link>
                 <Link href="/industry-aware-students">Industry-Aware Students</Link>
               </div>
@@ -169,16 +170,13 @@ export default function UseCases() {
         <div className="mx-auto grid w-full max-w-[1280px] gap-12 px-5 pb-16 pt-12 lg:min-h-[767px] lg:grid-cols-[minmax(0,624px)_minmax(0,579px)] lg:items-start lg:px-0">
           <div>
             <p className="text-[13px] font-bold text-[#2563eb]">
-              Applications / Use Cases
+              Applications of KDD / Use Cases
             </p>
             <h1 className="mt-16 max-w-[624px] font-display text-[42px] font-extrabold leading-[1.02] tracking-[-0.057em] text-[#11213a] sm:text-[58px] lg:text-[75px]">
               Bringing structure to{" "}
               <span className="text-[#2563eb]">industry, enterprise, and project.</span>
             </h1>
             <p className="mt-8 max-w-[624px] text-[19px] leading-[1.58] text-[#64748b]">
-              KDD makes this knowledge structured and therefore easier to learn, navigate, connect, and apply.
-            </p>
-            <p className="mt-6 max-w-[624px] text-[19px] leading-[1.58] text-[#64748b]">
               KDD makes this knowledge structured and therefore easier to learn, navigate, connect, and apply.
             </p>
           </div>

@@ -19,12 +19,16 @@ const slides = [
   { title: "Gen AI, RAG and Prompt Engineering", alt: "Gen AI, RAG and Prompt Engineering use cases: structured RAG input, accurate AI responses, reduced hallucinations, contextual prompts, domain-specific language models, and enterprise AI knowledge." },
 ];
 
+function slideImage(index: number) {
+  return index === 0 ? "/use-cases/application-1-numbered.png" : `/use-cases/application-${index + 1}.png`;
+}
+
 export default function UseCaseCarousel() {
   const [swiper, setSwiper] = useState<SwiperInstance | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div role="region" aria-label="KDD application area use cases" aria-roledescription="carousel" className="mt-10 min-w-0">
+    <div role="region" aria-label="KDD application area use cases" aria-roledescription="carousel" className="mx-auto mt-10 w-full min-w-0 max-w-[900px]">
       <div className="overflow-hidden rounded-[22px] border border-[#dbe5f3] bg-white shadow-[0_16px_40px_rgba(17,33,58,0.07)]">
         <Swiper
           id="use-case-slides"
@@ -48,16 +52,16 @@ export default function UseCaseCarousel() {
             <SwiperSlide key={slide.title}>
               <figure>
                 <Image
-                  src={`/use-cases/application-${index + 1}.png`}
+                  src={slideImage(index)}
                   alt={slide.alt}
                   width={1536}
                   height={1024}
-                  sizes="(min-width: 1280px) 1280px, 100vw"
+                  sizes="(min-width: 1024px) 900px, 100vw"
                   className="h-auto w-full object-contain"
                 />
                 <figcaption className="flex flex-col gap-3 border-t border-[#dbe5f3] px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-7">
                   <h3 className="font-display text-lg font-bold sm:text-xl">{slide.title}</h3>
-                  <a href={`/use-cases/application-${index + 1}.png`} target="_blank" rel="noopener noreferrer" className="w-fit text-sm font-bold text-[#2563eb] hover:underline">
+                  <a href={slideImage(index)} target="_blank" rel="noopener noreferrer" className="w-fit text-sm font-bold text-[#2563eb] hover:underline">
                     View full image <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span>
                   </a>
                 </figcaption>

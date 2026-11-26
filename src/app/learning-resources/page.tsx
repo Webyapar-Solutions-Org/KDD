@@ -1,8 +1,6 @@
 import InitialHomeSections from "@/components/InitialHomeSections";
-import { udemyCourseUrl } from "@/lib/course";
 import { learningBooks as books } from "@/lib/learning-resources";
 import Image from "next/image";
-import Link from "next/link";
 import type { ReactNode } from "react";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
@@ -11,7 +9,6 @@ import { createMetadata, getRouteSeo } from "@/lib/seo";
 export const metadata = createMetadata(getRouteSeo("/learning-resources"));
 
 const categories = [
-  ["Course", "course"],
   ["Videos", "videos"],
   ["Books", "books"],
   ["Presentation", "presentation"],
@@ -132,12 +129,12 @@ export default function LearningResourcesPage() {
       <section className="bg-[radial-gradient(circle_at_20%_20%,#ffffff_0%,#edf5ff_100%)]">
         <div className={`${container} grid items-center gap-12 lg:grid-cols-2`}>
           <div>
-            <p className="mb-8 text-[13px] font-bold text-[#2563eb]"><Link href="/">Home</Link> / Learning Resources</p>
+
             <Pill>Learning Resources</Pill>
             <h2 className="mt-6 font-display text-[42px] font-extrabold leading-[1.04] tracking-[-0.05em] sm:text-[58px] lg:text-[68px]">Build knowledge.<br /><span className="text-[#2563eb]">Connect the dots.</span></h2>
             <h2 className="mt-7 text-base font-bold">Learning objective</h2>
             <p className="mt-3 max-w-[610px] text-lg leading-[1.65] text-[#64748b]">Explore courses, videos, books, presentations and articles that explain how Knowledge Driven Development (KDD) and its constituent Industry Knowledge Structure (IKS) can support industry and academia as a foundational skill.</p>
-            <ExternalLink href={udemyCourseUrl} className={`${button} mt-7`}>Start learning</ExternalLink>
+
           </div>
           <div className="overflow-hidden rounded-[24px] border border-[#dbe5f3] bg-white p-4 shadow-[0_24px_60px_rgba(17,33,58,0.12)] sm:p-7">
             <Image src="/learning-resources/resources-overview.png" alt="KDD learning resources: courses, videos, books, presentations, and articles" width={1200} height={600} preload className="h-auto w-full rounded-xl" />
@@ -149,21 +146,6 @@ export default function LearningResourcesPage() {
       <nav aria-label="Resource categories" className="border-y border-[#dbe5f3] bg-white">
         <div className="mx-auto flex max-w-[1280px] flex-wrap gap-x-8 gap-y-2 px-5 py-5 xl:px-0">{categories.map(([label, id], index) => <a key={id} href={`#${id}`} className="rounded-md py-2 text-sm font-bold text-[#64748b] transition hover:text-[#2563eb]"><span className="mr-2 text-xs text-[#2563eb]">0{index + 1}</span>{label}</a>)}</div>
       </nav>
-
-      <section id="course" className="scroll-mt-28">
-        <div className={`${container} grid items-center gap-10 lg:grid-cols-2 lg:gap-16`}>
-          <div className="relative overflow-hidden rounded-[22px] border border-[#dbe5f3] bg-[#f1f6fd] shadow-[0_18px_40px_rgba(17,33,58,0.1)]">
-            <Image src="/learning-resources/course-preview.png" alt="Industry Knowledge Structure — Simplifying Life Insurance course" width={1280} height={720} sizes="(min-width: 1024px) 600px, 100vw" className="h-auto w-full" />
-          </div>
-          <div>
-            <Pill>Udemy Course</Pill>
-            <h2 className={`${heading} mt-5`}>Industry Knowledge Structure <span className="text-[#2563eb]">— Simplifying Life Insurance</span></h2>
-            <p className="mt-5 text-lg leading-[1.65] text-[#64748b]">A short Udemy course of 1 hour that introduces Industry Knowledge Structure and uses it to explain Life Insurance.</p>
-            <div className="mt-6 flex flex-wrap gap-3 text-sm font-bold"><span className="rounded-lg bg-[#f1f6fd] px-4 py-2">1-hour course</span><span className="rounded-lg bg-[#f1f6fd] px-4 py-2">Industry Knowledge Structure</span></div>
-            <ExternalLink href={udemyCourseUrl} className={`${button} mt-7`}>Explore the Udemy course</ExternalLink>
-          </div>
-        </div>
-      </section>
 
       <section id="videos" className="scroll-mt-28 bg-[#f6f8fc]">
         <div className={container}>
@@ -212,12 +194,6 @@ export default function LearningResourcesPage() {
         </div>
       </section>
 
-      <section className="bg-[#2563eb]">
-        <div className={`${container} flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between`}>
-          <div className="max-w-[850px]"><h2 className={`${heading} text-white`}>Build industry knowledge that sets you apart.</h2><p className="mt-4 text-lg text-[#dbeafe]">Start your 1-hour journey into Life Insurance and see the bigger picture.</p></div>
-          <ExternalLink href={udemyCourseUrl} className="inline-flex w-fit shrink-0 rounded-full bg-white px-6 py-4 text-sm font-bold text-[#2563eb] transition hover:bg-[#eaf2ff]">Enroll on Udemy</ExternalLink>
-        </div>
-      </section>
       <SiteFooter />
     </main>
   );

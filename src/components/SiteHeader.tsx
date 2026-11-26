@@ -16,6 +16,7 @@ const exploreLinks = [
     label: "Industry Knowledge Structure",
     href: "/industry-knowledge-structure",
   },
+  { label: "Learning Resources", href: "/learning-resources" },
 ];
 
 const applicationLinks = [
@@ -95,23 +96,14 @@ export default function SiteHeader({ active }: { active: ActiveSection }) {
         <nav className="hidden flex-none items-center justify-end gap-x-[30px] xl:flex">
           <Dropdown
             label="Explore KDD"
-            active={active === "explore"}
+            active={active === "explore" || active === "learning"}
             links={exploreLinks}
           />
           <Dropdown
-            label="Applications"
+            label="Applications of KDD"
             active={active === "applications"}
             links={applicationLinks}
           />
-          <Link
-            href="/learning-resources"
-            aria-current={active === "learning" ? "page" : undefined}
-            className={`py-2 text-sm font-semibold ${
-              active === "learning" ? "text-[#2563eb]" : "text-[#11213a]"
-            }`}
-          >
-            Learning Resources
-          </Link>
           <Link
             href="/about-us"
             className={`py-2 text-sm font-semibold ${
@@ -134,7 +126,7 @@ export default function SiteHeader({ active }: { active: ActiveSection }) {
             <div>
               <p
                 className={`text-sm font-extrabold ${
-                  active === "explore" ? "text-[#2563eb]" : "text-[#11213a]"
+                  active === "explore" || active === "learning" ? "text-[#2563eb]" : "text-[#11213a]"
                 }`}
               >
                 Explore KDD
@@ -158,7 +150,7 @@ export default function SiteHeader({ active }: { active: ActiveSection }) {
                   active === "applications" ? "text-[#2563eb]" : "text-[#11213a]"
                 }`}
               >
-                Applications
+                Applications of KDD
               </p>
               <div className="mt-2 grid gap-1">
                 {applicationLinks.map((link) => (
@@ -173,16 +165,6 @@ export default function SiteHeader({ active }: { active: ActiveSection }) {
                 ))}
               </div>
             </div>
-            <Link
-              href="/learning-resources"
-              onClick={() => setIsOpen(false)}
-              aria-current={active === "learning" ? "page" : undefined}
-              className={`text-sm font-semibold ${
-                active === "learning" ? "text-[#2563eb]" : "text-[#11213a]"
-              }`}
-            >
-              Learning Resources
-            </Link>
             <Link
               href="/about-us"
               onClick={() => setIsOpen(false)}

@@ -86,30 +86,6 @@ const resolutions = [
   },
 ];
 
-const overviewCards = [
-  {
-    number: "01",
-    title: "Industry Examples",
-    text: "Understand IKS through Life Insurance and Banking.",
-    highlighted: true,
-  },
-  {
-    number: "02",
-    title: "Four Mesh Layers",
-    text: "Explore increasing levels of product-process detail.",
-  },
-  {
-    number: "03",
-    title: "Industry Comparison",
-    text: "Compare top-level meshes across industries.",
-  },
-  {
-    number: "04",
-    title: "Challenges & Resolution",
-    text: "See how IKS supports industry and academia.",
-  },
-];
-
 
 function Pill({ children }: { children: React.ReactNode }) {
   return (
@@ -204,6 +180,7 @@ function Footer() {
                 <Link href="/why-domain-knowledge">Why Domain Knowledge</Link>
                 <Link href="/kdd-framework">KDD Framework</Link>
                 <Link href="/industry-knowledge-structure">Industry Knowledge Structure</Link>
+                <Link href="/learning-resources">Learning Resources</Link>
                 <Link href="/use-cases">Use Cases</Link>
                 <Link href="/industry-aware-students">Industry-Aware Students</Link>
               </div>
@@ -276,7 +253,7 @@ export default function IndustryKnowledgeStructure() {
           </div>
           <div className="relative aspect-[3/2] w-full overflow-hidden rounded-[24px] shadow-[0_28px_70px_rgba(8,28,53,0.22)]">
             <Image
-              src="/images/site-updates/iks-industry-knowledge-hub.png"
+              src="/images/site-updates/iks-industry-knowledge-hub-business-data.png"
               alt="Industry Knowledge Structure as a connected industry knowledge hub"
               fill
               priority
@@ -310,32 +287,6 @@ export default function IndustryKnowledgeStructure() {
             </div>
           </div>
 
-          <div className="mt-11 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {overviewCards.map((card) => (
-              <article
-                key={card.number}
-                className={`rounded-[18px] border p-7 shadow-[0_12px_18px_rgba(17,49,84,0.05)] ${
-                  card.highlighted
-                    ? "border-[#adcaff] bg-[#eaf2ff]"
-                    : "border-[#dbe5f3] bg-white"
-                }`}
-              >
-                <div
-                  className={`grid size-10 place-items-center rounded-xl text-base font-extrabold text-[#2563eb] ${
-                    card.highlighted ? "bg-white" : "bg-[#eaf2ff]"
-                  }`}
-                >
-                  {card.number}
-                </div>
-                <h3 className="mt-[18px] font-display text-[18px] font-bold text-[#11213a] lg:text-[21px]">
-                  {card.title}
-                </h3>
-                <p className="mt-[18px] text-sm leading-[1.58] text-[#64748b] lg:text-base">
-                  {card.text}
-                </p>
-              </article>
-            ))}
-          </div>
         </div>
       </section>
 

@@ -18,7 +18,7 @@ export default function SiteLogo({ inverse = false, showName = true }: { inverse
             KDD Educations
           </span>
         )}
-        <span className={`text-[10px] font-semibold ${inverse ? "text-[#9fb1c7]" : "text-[#64748b]"}`}>
+        <span className={`font-semibold ${showName ? "text-[10px]" : "max-w-[132px] text-sm leading-snug sm:max-w-none sm:text-base"} ${inverse ? "text-[#9fb1c7]" : "text-[#64748b]"}`}>
           Structuring Industry Knowledge
         </span>
       </span>

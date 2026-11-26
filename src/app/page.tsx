@@ -1,6 +1,4 @@
 import CourseSections from "@/components/CourseSections";
-import { udemyCourseUrl } from "@/lib/course";
-import { learningBooks as books } from "@/lib/learning-resources";
 import SiteLogo from "@/components/SiteLogo";
 import { socialLinks } from "@/lib/social-links";
 import Image from "next/image";
@@ -20,8 +18,8 @@ const darkBenefits = [
     text: "Build your understanding through books, papers, articles, and other learning resources.",
   },
   {
-    title: "KDD-based software tool in development",
-    text: "A software tool based on KDD is in development. Coming soon.",
+    title: "IKS-based software tool in development",
+    text: "A demo tool containing information from life insurance and banking - Coming soon.",
   },
   {
     title: "Present in many college syllabi",
@@ -29,11 +27,11 @@ const darkBenefits = [
   },
   {
     title: "Built on proven building blocks",
-    text: "A foundation of established concepts supports the KDD framework.",
+    text: "Products and processes, popularly used for learning form part of the structure.",
   },
   {
     title: "Domain agnostic structure",
-    text: "A common structure across industries that bridges the industry–academia gap.",
+    text: "Industry Knowledge Structure - Simplifying Banking: Coming soon.",
   },
 ];
 
@@ -131,7 +129,7 @@ export default function Home() {
       />
       <SiteHeader active="home" />
 
-      <CourseSections />
+      <CourseSections heroVideoId="xlOg7u7ksww" homePage />
 
       <section className="bg-[radial-gradient(circle_at_25%_20%,#ffffff_0%,#f5f9ff_38%,#edf5ff_100%)]">
         <div className="mx-auto grid w-full max-w-[1280px] items-start gap-10 px-5 pb-10 pt-12 sm:pb-12 lg:grid-cols-[minmax(0,630px)_minmax(0,580px)] lg:px-0">
@@ -152,12 +150,11 @@ export default function Home() {
           </div>
 
           <div className="relative mx-auto w-full max-w-[580px]">
-            <div className="relative aspect-[640/427] overflow-hidden rounded-[14px] shadow-[0_20px_36px_rgba(17,33,58,0.2)]">
+            <div className="relative aspect-[1930/1288] overflow-hidden rounded-[14px] bg-white shadow-[0_20px_36px_rgba(17,33,58,0.2)]">
               <Image
-                src="/images/site-updates/life-insurance-course-hero.png"
-                alt="Life Insurance industry knowledge connecting policy, underwriting, premium, and claims"
+                src="/new/1.png"
+                alt="Industry Knowledge Structure connecting contextual and conceptual knowledge to domain induction, and operational knowledge to project execution"
                 fill
-                priority
                 className="object-contain"
                 sizes="(min-width: 1024px) 580px, 100vw"
               />
@@ -260,74 +257,6 @@ export default function Home() {
         </div>
       </section> */}
 
-      <section className="bg-[#f1f6fd]">
-        <div className="mx-auto w-full max-w-[1280px] px-5 py-20 lg:min-h-[767px] lg:px-0 lg:py-24">
-          <SectionHeading
-            eyebrow="Course resources"
-            title="Continue learning with Knowledge-Driven Development."
-            text="Explore books that deepen your understanding of industry knowledge and its application in software development."
-          />
-          <div className="mt-11 grid gap-6 lg:grid-cols-2">
-            {books.map((book) => (
-              <article
-                key={book.title}
-                className="grid gap-6 rounded-[20px] border border-[#dbe5f3] bg-white p-6 shadow-[0_16px_22px_rgba(18,54,94,0.08)] sm:grid-cols-[180px_1fr]"
-              >
-                <div className="relative mx-auto h-[262px] w-[180px] self-start">
-                  <Image
-                    src={`/learning-resources/${book.image}`}
-                    alt={`${book.title} book cover`}
-                    fill
-                    unoptimized={book.image.endsWith(".gif")}
-                    sizes="180px"
-                    className="object-contain object-top"
-                  />
-                </div>
-                <div className="self-center">
-                  <h3 className="font-display text-[21px] font-bold leading-[1.2] text-[#11213a]">
-                    {book.title}
-                  </h3>
-                  {book.subtitle && <p className="mt-2 text-sm font-semibold text-[#64748b]">{book.subtitle}</p>}
-                  <p className="mt-2 text-sm font-bold text-[#2563eb]">By Manoj Kumar Lal</p>
-                  <p className="mt-2 text-xs font-semibold leading-relaxed text-[#64748b]">{book.publisher}</p>
-                  <p className="mt-4 text-sm leading-[1.55] text-[#64748b]">{book.description}</p>
-                  <a href={book.url} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex text-sm font-extrabold text-[#2563eb] hover:underline">
-                    Read more on Amazon <span aria-hidden="true">&nbsp;↗</span><span className="sr-only"> (opens in a new tab)</span>
-                  </a>
-                </div>
-              </article>
-            ))}
-          </div>
-          <Link href="/learning-resources" className="mt-8 inline-flex text-sm font-extrabold text-[#2563eb] hover:underline">
-            View all learning resources &rarr;
-          </Link>
-        </div>
-      </section>
-
-      <section className="bg-[#2563eb]">
-        <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-7 px-5 py-16 sm:flex-row sm:items-center sm:justify-between lg:min-h-[264px] lg:px-0">
-          <div>
-            <h2 className="font-display text-[34px] font-extrabold leading-[1.1] tracking-[-0.03em] text-white sm:text-[46px]">
-              Build industry knowledge that sets you apart.
-            </h2>
-            <p className="mt-3 text-[17px] leading-[1.55] text-[#dbeafe]">
-              Start your 1-hour journey into Life Insurance and see the bigger picture.
-            </p>
-            <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-[13px] text-[#dbeafe]">
-              <span>&#10003; 1-hour introductory course</span>
-              <span>&#10003; Beginner friendly</span>
-              <span>&#10003; Lifetime access</span>
-            </div>
-          </div>
-          <a
-            href={udemyCourseUrl} target="_blank" rel="noopener noreferrer"
-            className="w-fit rounded-full bg-white px-[22px] py-3.5 font-bold text-[#2563eb]"
-          >
-            Enroll on Udemy &rarr;
-          </a>
-        </div>
-      </section>
-
       <footer className="bg-[#061629]">
         <div className="mx-auto w-full max-w-[1280px] px-5 py-8 lg:px-0">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,380px)_1fr]">
@@ -346,6 +275,7 @@ export default function Home() {
                   <Link href="/why-domain-knowledge">Why Domain Knowledge</Link>
                   <Link href="/kdd-framework">KDD Framework</Link>
                   <Link href="/industry-knowledge-structure">Industry Knowledge Structure</Link>
+                  <Link href="/learning-resources">Learning Resources</Link>
                   <Link href="/use-cases">Use Cases</Link>
                   <Link href="/industry-aware-students">Industry-Aware Students</Link>
                   <Link href="/about-us">About Us</Link>

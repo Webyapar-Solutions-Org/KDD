@@ -10,16 +10,69 @@ export const metadata = createMetadata(getRouteSeo("/industry-aware-students"));
 
 const sections = [
   {
+    eyebrow: "Section 1: Domain knowledge and students",
+    title: "Domain skill is crucial for software development",
+    image: "/images/software-development-domain-skills.png",
+    imageAlt:
+      "Software development skills: domain knowledge, soft skills, AI and digital skills, and technology skills.",
+    imageWidth: 1536,
+    imageHeight: 1024,
+    text: [
+      "Software implements domain knowledge for bringing in sensible automation in executing business processes of an organisation.",
+      "IKS makes it possible to introduce industry knowledge in academia in a formal way, plugging an open industry-academia gap.",
+    ],
+    imageFirst: true,
+  },
+  {
     title: "Industry knowledge is key to a management student",
+    image: "/images/management-student-skills.png",
+    imageWidth: 1536,
+    imageHeight: 1024,
+    imageAlt:
+      "Four skills for management students: domain skills, digital skills, analytical skills, and soft skills, with examples for each.",
     text: [
       "Management colleges traditionally focus on horizontal domains such as HR and Marketing.",
-      "Vertical domain that are industries such as life insurance, Banking and Healthcare - are needed so that the students can work effectively in these industries. IKS makes it easy to learn industry knowledge.",
+      "Knowledge of vertical domain that are industries such as life insurance, Banking and Healthcare - are needed so that the students can work effectively in these industries. IKS makes it easy to learn industry knowledge.",
+    ],
+    imageFirst: true,
+  },
+  {
+    eyebrow: "Section 2: Gaining IKS Skill in Five Steps",
+    title: "Learning IKS - From Foundation to Industry Application",
+    image: "/images/iks-five-step-learning.png",
+    imageAlt:
+      "Five steps to learn IKS: learn the structure, apply it to life insurance, discover it through banking, practice in other industries, and apply it in industry assignments.",
+    imageWidth: 1774,
+    imageHeight: 887,
+    text: [
+      "In the 5 step learning process, the first 3 can be acquired by going through the Udemy course link provided in the landing page.",
+      "For Step 4, page Domain Knowledge Details provides glimpses of other industries using IKS so that students can themselves start applying IKS to other industries.",
+      "Step 5 needs practitioner level skill and KDD Educations can be connected for the same.",
+    ],
+    muted: true,
+  },
+  {
+    eyebrow: "Section 3: Fast tracking IKS for interview",
+    title: "Preparing industry aware students",
+    image: "/new/2.png",
+    imageAlt:
+      "Eight-hour IKS interview preparation path: introductory session, Udemy course, industry exposure session, and self-practice creating IKS artefacts.",
+    imageWidth: 2375,
+    imageHeight: 979,
+    text: [
+      "In approximately 8 hours students can comfortably add IKS in their CV and gain advantage of this differentiating skill in the interview.",
+      "It will be split into four steps, understanding why IKS is required for students, going through Udemy course, a session by KDD Educations to enhance their understanding of IKS and finally producing a couple of artefacts based on IKS of the domain of the interviewing company.",
     ],
     imageFirst: true,
   },
   {
     eyebrow: "Section 4: Updating CV - An example",
     title: "Tips on what to update in the CV",
+    image: "/images/iks-cv-example.png",
+    imageAlt:
+      "Example CV showing how to present Industry Knowledge Structure skills, a profile summary, and course completion.",
+    imageWidth: 1672,
+    imageHeight: 940,
     text: [
       "A sample is provided on how to update CV to reflect this skill. There are 3 places where the CV need to be updated.",
       "1. Add a line in the summary section of the CV.",
@@ -54,7 +107,18 @@ function ContentSection({
 }: {
   section: (typeof sections)[number];
 }) {
-  const image = <PhotoCard />;
+  const image = (
+    <div className="overflow-hidden rounded-[24px] bg-white shadow-[0_28px_70px_rgba(8,28,53,0.12)]">
+      <Image
+        src={section.image}
+        alt={section.imageAlt}
+        width={section.imageWidth}
+        height={section.imageHeight}
+        className="h-auto w-full object-contain"
+        sizes="(min-width: 1024px) 616px, 100vw"
+      />
+    </div>
+  );
   const text = (
     <div>
       {section.eyebrow ? (
@@ -142,6 +206,7 @@ function Footer() {
                 <Link href="/why-domain-knowledge">Why Domain Knowledge</Link>
                 <Link href="/kdd-framework">KDD Framework</Link>
                 <Link href="/industry-knowledge-structure">Industry Knowledge Structure</Link>
+                <Link href="/learning-resources">Learning Resources</Link>
                 <Link href="/use-cases">Use Cases</Link>
                 <Link href="/industry-aware-students">Industry-Aware Students</Link>
               </div>
@@ -202,7 +267,7 @@ export default function IndustryAwareStudents() {
         <div className="mx-auto grid w-full max-w-[1280px] gap-12 px-5 pb-16 pt-12 lg:min-h-[725px] lg:grid-cols-[minmax(0,627px)_minmax(0,579px)] lg:items-start lg:px-0">
           <div>
             <p className="text-[13px] font-bold text-[#2563eb]">
-              Applications / Industry-Aware Students
+              Applications of KDD / Industry-Aware Students
             </p>
             <h1 className="mt-20 max-w-[627px] font-display text-[42px] font-extrabold leading-[1.02] tracking-[-0.057em] text-[#11213a] sm:text-[58px] lg:text-[74px]">
               Prepare students for the{" "}

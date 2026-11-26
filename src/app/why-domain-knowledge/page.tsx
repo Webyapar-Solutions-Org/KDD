@@ -117,9 +117,9 @@ function Footer() {
                 <Link href="/why-domain-knowledge">Why Domain Knowledge</Link>
                 <Link href="/kdd-framework">KDD Framework</Link>
                 <Link href="/industry-knowledge-structure">Industry Knowledge Structure</Link>
+                <Link href="/learning-resources">Learning Resources</Link>
                 <Link href="/use-cases">Use Cases</Link>
                 <Link href="/industry-aware-students">Industry-Aware Students</Link>
-                <Link href="/learning-resources">Learning Resources</Link>
               </div>
             </div>
             <div>
@@ -243,7 +243,7 @@ export default function WhyDomainKnowledge() {
               Industry knowledge is critical, but it is often difficult to acquire.
             </p>
             <p className="mt-5 text-[17px] leading-[1.6] text-[#64748b]">
-              Knowledge is scattered across documents, systems, people, and projects, often without a structured representation.
+              This challenge stems from the vast and distributed nature of industry knowledge, which is scattered across documents, systems, people, and projects, often without a structured representation. As a result, acquiring industry knowledge becomes a time-consuming process, prolonging the learning curve.
             </p>
             <p className="mt-7 font-display text-[22px] font-bold leading-[1.4] text-[#64748b]">
               If industry knowledge could be structured, learning could become

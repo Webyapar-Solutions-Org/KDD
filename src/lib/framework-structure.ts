@@ -16,20 +16,13 @@ export const frameworkStructure = [
     ],
   },
   {
-    title: "Regeneration of knowledge nodes into child nodes",
-    image: "child-knowledge-nodes.png",
-    paragraphs: [
-      "A parent node can be broken down into a child Product–Process Mesh by splitting its product and process into the next level of detail. This creates multiple child nodes.",
-      "Regeneration allows the same structure to capture both high-level industry knowledge and detailed information.",
-    ],
-  },
-  {
     title: "Industry Knowledge Structure (IKS)",
     image: "industry-knowledge-structure.png",
     paragraphs: [
       "IKS has three layers: Contextual, Conceptual, and Operational Knowledge. The Conceptual and Operational layers contain multiple levels of Product–Process Mesh.",
       "Contextual Knowledge covers high-level topics as nodes, with the details of each topic captured as nuggets. It does not use a Product–Process Mesh.",
       "At the operational level, nuggets contain atomic information that cannot be split any further.",
+      "An example of atomic nugget - Date of birth can not be a future date.",
     ],
   },
   {
@@ -38,14 +31,6 @@ export const frameworkStructure = [
     paragraphs: [
       "Enterprise knowledge connects business knowledge with IT knowledge. Business knowledge follows the Industry Knowledge Structure.",
       "IT knowledge also has four levels of hierarchy, starting with an IT application and progressing to a business transaction. IT nodes and nuggets populate this structure.",
-    ],
-  },
-  {
-    title: "Enterprise Knowledge Structure: a deep dive",
-    image: "enterprise-deep-dive.png",
-    paragraphs: [
-      "Interconnected business and IT nuggets at the lowest level capture the enterprise’s detailed knowledge.",
-      "This detailed enterprise knowledge forms a major part of project knowledge, providing traceability between business understanding and IT implementation.",
     ],
   },
   {
@@ -60,13 +45,22 @@ export const frameworkStructure = [
     title: "KDD as a project delivery methodology",
     image: "project-delivery.png",
     paragraphs: [
-      "KDD aims to balance knowledge activities with execution activities throughout project delivery.",
-      "It can be adopted as a project delivery methodology or used to structure knowledge within existing methodologies.",
+      "Waterfall: Too much emphasis on knowledge that can delay execution.",
+      "Agile: Too much emphasis on execution that can compromise the output.",
+      "KDD: It aims to balance knowledge activities with execution activities throughout project delivery.",
+      "It can be adopted as a project delivery methodology or used to structure knowledge for both Waterfall and Agile.",
+    ],
+  },
+  {
+    title: "Structured knowledge and project delivery",
+    image: "/new/3.png",
+    paragraphs: [
+      "Structuring knowledge can significantly improve the quality of the project at reduced cost.",
     ],
   },
   {
     title: "KDD co-exists with generative AI",
-    image: "generative-ai.png",
+    image: "/new/4.png",
     paragraphs: [
       "A populated KDD structure can provide reliable input to generative AI, helping reduce hallucinations.",
       "Generative AI can also help populate the KDD structure with nodes and nuggets for different industries.",

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import HeroVideoPreview from "@/components/HeroVideoPreview";
 import { udemyCourseUrl } from "@/lib/course";
 import { learningBooks } from "@/lib/learning-resources";
 
@@ -127,7 +128,17 @@ function SectionHeading({
   );
 }
 
-export default function CourseSections() {
+export default function CourseSections({ heroVideoId, homePage = false }: { heroVideoId?: string; homePage?: boolean }) {
+  const displayedLearnerCards = learnerCards.map(card => homePage && card.title === "Business Professionals"
+    ? { ...card, text: "Accelerate your career with an end-to-end understanding of the industry, linking its big picture to the work you do every day." }
+    : card);
+  const homeBenefitText: Record<string, string> = {
+    "Connect high level to detailed level information seamlessly.": "Understand how big picture and operational knowledge of the industry are interconnected.",
+    "Appreciate the domain agnostic nature of the structure": "Demonstrates how the same structure can be used to learn banking as well.",
+  };
+  const displayedBenefits = darkBenefits.map(benefit => homePage
+    ? { ...benefit, text: homeBenefitText[benefit.title.trim()] ?? benefit.text }
+    : benefit);
   return (
     <>
       <section className="bg-[radial-gradient(circle_at_25%_20%,#ffffff_0%,#f5f9ff_38%,#edf5ff_100%)]">
@@ -139,7 +150,7 @@ export default function CourseSections() {
               <span className="text-[#2563eb]">Simplifying Life Insurance</span>
             </h1>
             <p className="mt-7 max-w-[650px] text-lg leading-[1.55] text-[#64748b]">
-              Learn Industry Knowledge Structure (IKS) as a practical skill. Start with Life Insurance, then apply the same framework to other industries.
+              Learn Industry Knowledge Structure (IKS) as a practical skill. Learn Life Insurance using IKS. Understand how banking knowledge can be learnt using IKS. Finally, learn how structured learning helps improve project delivery and operational effectiveness.
             </p>
             <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3">
               {heroStats.map((stat) => (
@@ -160,6 +171,7 @@ export default function CourseSections() {
           </div>
 
           <div className="relative mx-auto w-full max-w-[580px]">
+            {heroVideoId ? <HeroVideoPreview videoId={heroVideoId} /> : <>
             <div className="relative aspect-[640/427] overflow-hidden rounded-[14px] shadow-[0_20px_36px_rgba(17,33,58,0.2)]">
               <Image
                 src="/images/site-updates/life-insurance-course-hero.png"
@@ -177,6 +189,7 @@ export default function CourseSections() {
             >
               <Image src="/figma-assets/play-course-preview.svg" alt="" width={24} height={24} />
             </button>
+            </>}
           </div>
         </div>
       </section>
@@ -189,7 +202,7 @@ export default function CourseSections() {
             text="Whether you are starting your career or expanding your domain knowledge, this course provides a clear and practical introduction to the Life Insurance industry."
           />
           <div className="mt-11 grid gap-[18px] sm:grid-cols-2 lg:grid-cols-4">
-            {learnerCards.map((card) => (
+            {displayedLearnerCards.map((card) => (
               <article
                 key={card.title}
                 className="rounded-[10px] border border-[#dbe5f3] bg-white p-6 shadow-[0_10px_15px_rgba(21,52,88,0.04)]"
@@ -219,7 +232,7 @@ export default function CourseSections() {
             </p>
           </div>
           <div className="grid gap-3">
-            {darkBenefits.map((benefit, index) => (
+            {displayedBenefits.map((benefit, index) => (
               <div
                 key={benefit.title}
                 className={`grid grid-cols-[28px_1fr] gap-3 rounded-md px-4 py-3 ${
@@ -277,6 +290,7 @@ export default function CourseSections() {
         </div>
       </section> */}
 
+      {!homePage && <>
       <section className="bg-[#f1f6fd]">
         <div className="mx-auto w-full max-w-[1280px] px-5 py-20 lg:min-h-[767px] lg:px-0 lg:py-24">
           <SectionHeading
@@ -340,6 +354,7 @@ export default function CourseSections() {
           </a>
         </div>
       </section>
+      </>}
     </>
   );
 }
