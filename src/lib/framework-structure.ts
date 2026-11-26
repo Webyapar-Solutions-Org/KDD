@@ -27,7 +27,7 @@ export const frameworkStructure = [
   },
   {
     title: "Enterprise Knowledge Structure",
-    image: "enterprise-knowledge-structure.png",
+    image: "enterprise-knowledge-pyramids.png",
     paragraphs: [
       "Enterprise knowledge connects business knowledge with IT knowledge. Business knowledge follows the Industry Knowledge Structure.",
       "IT knowledge also has four levels of hierarchy, starting with an IT application and progressing to a business transaction. IT nodes and nuggets populate this structure.",

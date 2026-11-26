@@ -1,3 +1,4 @@
+import { udemyCourseUrl } from "@/lib/course";
 import CourseSections from "@/components/CourseSections";
 import SiteLogo from "@/components/SiteLogo";
 import { socialLinks } from "@/lib/social-links";
@@ -276,6 +277,7 @@ export default function Home() {
                   <Link href="/kdd-framework">KDD Framework</Link>
                   <Link href="/industry-knowledge-structure">Industry Knowledge Structure</Link>
                   <Link href="/learning-resources">Learning Resources</Link>
+                  <a href={udemyCourseUrl} target="_blank" rel="noopener noreferrer">Udemy Course</a>
                   <Link href="/use-cases">Use Cases</Link>
                   <Link href="/industry-aware-students">Industry-Aware Students</Link>
                   <Link href="/about-us">About Us</Link>

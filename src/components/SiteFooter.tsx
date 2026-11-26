@@ -1,3 +1,4 @@
+import { udemyCourseUrl } from "@/lib/course";
 import SiteLogo from "@/components/SiteLogo";
 import { socialLinks } from "@/lib/social-links";
 import Image from "next/image";
@@ -24,6 +25,7 @@ export default function SiteFooter() {
                 <Link href="/kdd-framework">KDD Framework</Link>
                 <Link href="/industry-knowledge-structure">Industry Knowledge Structure</Link>
                 <Link href="/learning-resources">Learning Resources</Link>
+                <a href={udemyCourseUrl} target="_blank" rel="noopener noreferrer">Udemy Course</a>
                 <Link href="/use-cases">Use Cases</Link>
                 <Link href="/faq-1">FAQs</Link>
                 <Link href="/about-us">About Us</Link>
