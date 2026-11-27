@@ -1,4 +1,5 @@
 import InitialHomeSections from "@/components/InitialHomeSections";
+import { udemyCourseUrl } from "@/lib/course";
 import { learningBooks as books } from "@/lib/learning-resources";
 import Image from "next/image";
 import type { ReactNode } from "react";
@@ -191,6 +192,32 @@ export default function LearningResourcesPage() {
               <ExternalLink href={article.url} className="mt-auto w-fit text-sm font-extrabold text-[#2563eb] hover:underline">{article.action}</ExternalLink>
             </article>
           ))}</div>
+        </div>
+      </section>
+
+      <section className="bg-[#2563eb]">
+        <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-7 px-5 py-16 sm:flex-row sm:items-center sm:justify-between lg:min-h-[264px] lg:px-0">
+          <div>
+            <h2 className="font-display text-[34px] font-extrabold leading-[1.1] tracking-[-0.03em] text-white sm:text-[46px]">
+              Build industry knowledge that sets you apart.
+            </h2>
+            <p className="mt-3 text-[17px] leading-[1.55] text-[#dbeafe]">
+              Start your 1-hour journey into Life Insurance and see the bigger picture.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-[13px] text-[#dbeafe]">
+              <span>&#10003; 1-hour introductory course</span>
+              <span>&#10003; Beginner friendly</span>
+              <span>&#10003; Lifetime access</span>
+            </div>
+          </div>
+          <a
+            href={udemyCourseUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-fit rounded-full bg-white px-[22px] py-3.5 font-bold text-[#2563eb]"
+          >
+            Enroll on Udemy &rarr;
+          </a>
         </div>
       </section>
 

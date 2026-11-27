@@ -4,9 +4,31 @@ import { socialLinks } from "@/lib/social-links";
 import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
+import IksIndustryExamples from "@/components/IksIndustryExamples";
+import IksMeshCarousel from "@/components/IksMeshCarousel";
 import { createMetadata, getRouteSeo } from "@/lib/seo";
 
 export const metadata = createMetadata(getRouteSeo("/industry-knowledge-structure"));
+
+const exampleTopics = [
+  {
+    title: "A quick run down of Life Insurance and Banking.",
+    description:
+      "Explore Life Insurance and Banking through the same three layers of IKS: contextual, conceptual, and operational knowledge. The structure connects an industry's big picture with its products, processes, business rules, and data.",
+  },
+  {
+    title: "A schematic representation of contextual knowledge.",
+    description:
+      "Contextual knowledge provides a high-level view of an industry. The diagram brings together nine topics, including its introduction, evolution, characteristics, departments, stakeholders, regulatory influence, latest trends, IT applications, and glossary.",
+    image: "/new/5.png",
+    imageWidth: 1434,
+    imageHeight: 1210,
+    imageAlt: "Nine topics of contextual knowledge arranged around a central knowledge hub",
+  },
+  {
+    title: "Product-Process mesh for selected industries",
+  },
+];
 
 const challenges = [
   {
@@ -14,7 +36,7 @@ const challenges = [
     items: [
       {
         role: "Senior management:",
-        text: "I liked the structured representation of information. Let’s implement it in the project so our teams can understand the customer’s language more clearly and consistently.",
+        text: "Why do our teams still struggle to understand the customer’s language despite years of relationship?",
       },
       {
         role: "Business analyst / Test analyst / Product Owner:",
@@ -22,7 +44,7 @@ const challenges = [
       },
       {
         role: "Project manager / Scrum master:",
-        text: "I have to rely on team members' status because I cannot understand their detailed work.",
+        text: "I have to rely on team members’ status because I cannot understand their detailed work.",
       },
       {
         role: "Developer:",
@@ -30,7 +52,7 @@ const challenges = [
       },
       {
         role: "Sales and marketing professionals:",
-        text: "How do I understand and explain complex products in the customer's language?",
+        text: "How do I understand and explain complex products in the customer’s language?",
       },
       {
         role: "Working professionals switching domain:",
@@ -39,11 +61,11 @@ const challenges = [
     ],
   },
   {
-    group: "From Academic:",
+    group: "From Academia:",
     items: [
       {
-        role: "Engineering and science students aiming to join IT Industry:",
-        text: "Use IKS as a differentiating skill for interviews, projects, and industry readiness.",
+        role: "Engineering and science students aiming to join IT industry:",
+        text: "With AI in everyone’s CV, we need a differentiating skill to crack the interview.",
       },
       {
         role: "Students of business / management schools:",
@@ -59,11 +81,19 @@ const resolutions = [
     items: [
       {
         role: "Senior management:",
-        text: "I liked the structured representation of information. Let’s implement it in the project so our teams can understand the customer’s language more clearly and consistently.",
+        text: "I liked the structured representation of information, let us implement it in the project for experience certainty.",
       },
       {
         role: "Business analyst / Test analyst / Product Owner:",
         text: "I need related nuggets such as business rules of operational knowledge for my day job.",
+      },
+      {
+        role: "Project manager / Scrum master:",
+        text: "Drill down from contextual to operational knowledge, the visibility I need from day one to perform my job better.",
+      },
+      {
+        role: "Developer:",
+        text: "I can connect contextual, conceptual and operational knowledge to understand not just what to build, but why and how it works and reduce the dependence on BA/SME.",
       },
       {
         role: "Sales and marketing consultant:",
@@ -79,8 +109,12 @@ const resolutions = [
     group: "From Academia:",
     items: [
       {
-        role: "Engineering and science students aiming to join IT",
-        text: "Use IKS as a differentiating foundation for interviews, projects, and industry readiness.",
+        role: "Engineering and science students aiming to join IT industry:",
+        text: "IKS exposes us to industry knowledge in a scientific and formal way, increasing our chances to clear the interview.",
+      },
+      {
+        role: "Students of business / management schools:",
+        text: "IKS is a new skill that can be used to learn multiple industries using a common structure allowing a student of marketing to learn life insurance as well and for that matter any other industry.",
       },
     ],
   },
@@ -101,9 +135,11 @@ function Header() {
 
 function TextGroup({
   title,
+  introduction,
   sections,
 }: {
   title: string;
+  introduction: string[];
   sections: typeof challenges;
 }) {
   return (
@@ -111,6 +147,9 @@ function TextGroup({
       <h2 className="font-display text-[34px] font-extrabold leading-[1.08] tracking-[-0.045em] text-[#11213a] sm:text-[48px] lg:text-[56px]">
         {title}
       </h2>
+      <div className="mt-6 space-y-4 text-lg leading-[1.58] text-[#64748b]">
+        {introduction.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+      </div>
       <div className="mt-10 grid gap-10 lg:grid-cols-2">
         {sections.map((section) => (
           <div key={section.group} className="space-y-6">
@@ -269,23 +308,68 @@ export default function IndustryKnowledgeStructure() {
         <div className="mx-auto w-full max-w-[1280px] px-5 py-20 lg:px-0 lg:py-24">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,655px)_1fr] lg:items-center">
             <div>
-              <Pill>Understanding Industry Knowledge Structure</Pill>
+              <Pill>Understanding IKS through examples</Pill>
               <h2 className="mt-6 font-display text-[38px] font-extrabold leading-[1.07] tracking-[-0.045em] text-[#11213a] sm:text-[56px]">
-                See how knowledge connects across industries.
+                See how knowledge is standardized across industries.
               </h2>
               <p className="mt-6 max-w-[655px] text-lg leading-[1.58] text-[#64748b]">
-                The KDD Framework page introduces the basic structure of IKS. This page explains the structure once again and focuses on applying that structure to real industries.
+                The 'KDD Framework' page introduces the basic structure of IKS. Here we will exemplify IKS through three topics:
               </p>
+              <ul className="mt-4 max-w-[655px] list-disc space-y-3 pl-6 text-lg leading-[1.58] text-[#64748b]">
+                {exampleTopics.map((topic) => <li key={topic.title}>{topic.title}</li>)}
+              </ul>
             </div>
             <div className="relative aspect-[3/2] w-full overflow-hidden rounded-[24px] shadow-[0_28px_70px_rgba(8,28,53,0.22)]">
               <Image
-                src="/images/site-updates/industry-knowledge-connected.png"
+                src="/images/kdd-structure/industry-knowledge-structure.png"
                 alt="Connected industry knowledge across industries"
                 fill
                 className="object-contain"
                 sizes="(min-width: 1024px) 590px, 100vw"
               />
             </div>
+          </div>
+
+          <div className="mt-12 grid w-full gap-4">
+            {exampleTopics.map((topic, index) => (
+              <details
+                key={topic.title}
+                name="iks-example-topics"
+                open={index === 0}
+                className="group overflow-hidden rounded-[20px] border border-[#dbe5f3] bg-[#102e50] shadow-[0_12px_24px_rgba(17,33,58,0.05)] open:border-[#b9d2ff] open:bg-white"
+              >
+                <summary className="flex cursor-pointer list-none items-center gap-4 p-5 text-white transition hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[#60a5fa] group-open:text-[#11213a] sm:gap-5 sm:p-7 [&::-webkit-details-marker]:hidden">
+                  <span aria-hidden="true" className="grid size-10 shrink-0 place-items-center rounded-xl bg-[#1d4775] text-sm font-extrabold text-[#93c5fd] group-open:bg-[#eaf2ff] group-open:text-[#2563eb]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="flex-1 font-display text-base font-bold leading-snug sm:text-xl">{topic.title}</h3>
+                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="size-5 shrink-0 text-[#93c5fd] transition-transform group-open:rotate-180 group-open:text-[#2563eb]">
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </summary>
+                <div className="mx-5 grid gap-7 border-t border-[#dbe5f3] py-7 sm:mx-7 lg:items-start lg:gap-10">
+                  {index === 0 ? (
+                    <IksIndustryExamples />
+                  ) : index === 1 ? (
+                    <h4 className="font-display text-xl font-bold leading-snug text-[#11213a] sm:text-2xl">
+                      The contextual knowledge is covered in 9 topics.
+                    </h4>
+                  ) : (
+                    <IksMeshCarousel />
+                  )}
+                  {topic.image ? (
+                    <figure className={index === 1 ? "mx-auto w-full min-w-0 max-w-[720px]" : "min-w-0"}>
+                      <Image src={topic.image} alt={topic.imageAlt} width={topic.imageWidth} height={topic.imageHeight} sizes="(min-width: 1024px) 720px, 100vw" className="h-auto w-full rounded-[14px] border border-[#dbe5f3]" />
+                      <figcaption className="mt-4">
+                        <a href={topic.image} target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-[#2563eb] hover:underline">
+                          View full diagram <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span>
+                        </a>
+                      </figcaption>
+                    </figure>
+                  ) : null}
+                </div>
+              </details>
+            ))}
           </div>
 
         </div>
@@ -295,10 +379,17 @@ export default function IndustryKnowledgeStructure() {
         <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-20 px-5 py-20 lg:px-0 lg:py-24">
           <TextGroup
             title="Domain related challenges from various stakeholders"
+            introduction={[
+              "Stakeholders are from both industry and academia",
+              "Learning domain knowledge in a traditional way has a long learning curve",
+            ]}
             sections={challenges}
           />
           <TextGroup
             title="Resolution to domain related challenges using IKS"
+            introduction={[
+              "IKS introduces a scientific way of learning industry knowledge that accelerates the learning path for stakeholders of industry and academia",
+            ]}
             sections={resolutions}
           />
         </div>

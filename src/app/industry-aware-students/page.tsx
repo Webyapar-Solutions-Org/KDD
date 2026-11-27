@@ -46,8 +46,8 @@ const sections = [
     imageHeight: 887,
     text: [
       "In the 5 step learning process, the first 3 can be acquired by going through the Udemy course link provided in the landing page.",
-      "For Step 4, page Domain Knowledge Details provides glimpses of other industries using IKS so that students can themselves start applying IKS to other industries.",
-      "Step 5 needs practitioner level skill and KDD Educations can be connected for the same.",
+      "For Step 4, page Industry Knowledge Structure provides glimpses of other industries using IKS so that students can themselves start applying IKS to other industries.",
+      "Step 5 needs practitioner level skill and KDD Educations can be contacted for the same.",
     ],
     muted: true,
   },

@@ -23,7 +23,7 @@ const learnerCards = [
   {
     icon: "/figma-assets/layer-10.svg",
     title: "IT Professionals",
-    text: "Strengthen your career domain understanding and connect knowledge with everyday work.",
+    text: "Strengthen your career by mastering a standardised approach to learn any domain that simplifies requirement, build and test.",
   },
   {
     icon: "/figma-assets/laptop.svg",
