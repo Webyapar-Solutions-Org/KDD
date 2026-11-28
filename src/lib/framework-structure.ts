@@ -60,7 +60,7 @@ export const frameworkStructure = [
   },
   {
     title: "KDD co-exists with generative AI",
-    image: "/new/4.png",
+    image: "generative-ai-pyramid.png",
     paragraphs: [
       "A populated KDD structure can provide reliable input to generative AI, helping reduce hallucinations.",
       "Generative AI can also help populate the KDD structure with nodes and nuggets for different industries.",

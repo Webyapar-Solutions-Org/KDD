@@ -10,7 +10,11 @@ import "swiper/css/pagination";
 import "swiper/css/a11y";
 import styles from "./UseCaseCarousel.module.css";
 
-const industries = ["Automobile", "Agriculture", "Retail", "Pharmaceuticals"];
+const industries = [
+  { name: "Agriculture", image: "/images/industry-mesh/2.png" },
+  { name: "Retail", image: "/images/industry-mesh/3.png" },
+  { name: "Pharmaceuticals", image: "/images/industry-mesh/4.png" },
+];
 
 export default function IksMeshCarousel() {
   const [swiper, setSwiper] = useState<SwiperInstance | null>(null);
@@ -35,10 +39,10 @@ export default function IksMeshCarousel() {
           onSwiper={setSwiper}
           onSlideChange={(instance) => setActiveIndex(instance.activeIndex)}
         >
-          {industries.map((industry, index) => (
+          {industries.map(({ name: industry, image }) => (
             <SwiperSlide key={industry}>
-              <a href={`/images/industry-mesh/${index + 1}.png`} target="_blank" rel="noopener noreferrer" aria-label={`View full ${industry} mesh diagram (opens in a new tab)`}>
-                <Image src={`/images/industry-mesh/${index + 1}.png`} alt={`Snippets of Industry Knowledge Structure: ${industry} Product-Process mesh`} width={1280} height={720} sizes="(min-width: 1024px) 1000px, 100vw" className="h-auto w-full object-contain" />
+              <a href={image} target="_blank" rel="noopener noreferrer" aria-label={`View full ${industry} mesh diagram (opens in a new tab)`}>
+                <Image src={image} alt={`Snippets of Industry Knowledge Structure: ${industry} Product-Process mesh`} width={1280} height={720} sizes="(min-width: 1024px) 1000px, 100vw" className="h-auto w-full object-contain" />
               </a>
             </SwiperSlide>
           ))}
@@ -48,7 +52,7 @@ export default function IksMeshCarousel() {
       <div className="mt-5 flex items-center justify-between gap-4">
         <p aria-live="polite" aria-atomic="true" className="text-sm font-semibold text-[#64748b]">
           <span className="font-extrabold text-[#2563eb]">{activeIndex + 1}</span> / {industries.length}
-          <span className="sr-only">: {industries[activeIndex]}</span>
+          <span className="sr-only">: {industries[activeIndex].name}</span>
         </p>
         <div className="flex gap-3">
           <button type="button" aria-label="Previous industry" aria-controls="iks-mesh-slides" disabled={!swiper} onClick={() => swiper?.slidePrev()} className="grid size-11 place-items-center rounded-full border border-[#dbe5f3] bg-white text-xl text-[#2563eb] transition hover:bg-[#eaf2ff] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2563eb] disabled:opacity-40"><span aria-hidden="true">←</span></button>
@@ -56,10 +60,10 @@ export default function IksMeshCarousel() {
         </div>
       </div>
 
-      <div className="mt-5 grid grid-cols-4 gap-2 sm:gap-4">
-        {industries.map((industry, index) => (
+      <div className="mt-5 grid grid-cols-3 gap-2 sm:gap-4">
+        {industries.map(({ name: industry, image }, index) => (
           <button key={industry} type="button" aria-label={`Show ${industry} mesh diagram`} aria-pressed={index === activeIndex} onClick={() => swiper?.slideTo(index)} className={`overflow-hidden rounded-lg border-2 bg-white p-1 transition focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2563eb] ${index === activeIndex ? "border-[#2563eb]" : "border-[#dbe5f3] hover:border-[#93c5fd]"}`}>
-            <Image src={`/images/industry-mesh/${index + 1}.png`} alt="" width={1280} height={720} sizes="(min-width: 1024px) 240px, 25vw" className="h-auto w-full" />
+            <Image src={image} alt="" width={1280} height={720} sizes="(min-width: 1024px) 320px, 33vw" className="h-auto w-full" />
           </button>
         ))}
       </div>
